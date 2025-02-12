@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E30076F7C36F912F5BAD4222721E2CF /* Pods-NailDiseaseSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CBE4E9451D87CCE11EC6FCBABE36F41 /* Pods-NailDiseaseSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16A5041DF8DB7BC2A424D3CF52B101B6 /* Pods-NailDiseaseSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4A5F8FDFDB8BA208590A23041F991A /* Pods-NailDiseaseSDK-dummy.m */; };
+		2F19FCF62A3C73A5A15E7F71CAF1746B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F9B2BE01C29FD14C4402CA7064DE1A /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */; };
+		730D907C94CAF945B8331741ED128C2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		E72C293F529990E8425F98B72F8B9A70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		FE19A18AE16743D69D556207660FD0D4 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB874B8D93885CAECE070B87CB51007 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06C0042DA3A3B2594E65705C1A565F69 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests"; path = Pods_NailDiseaseSDK_NailDiseaseSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NailDiseaseSDK"; path = Pods_NailDiseaseSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB874B8D93885CAECE070B87CB51007 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h"; sourceTree = "<group>"; };
+		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		41F9B2BE01C29FD14C4402CA7064DE1A /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m"; sourceTree = "<group>"; };
+		59EEE41B1677789478634A04E73B08E7 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5CBE4E9451D87CCE11EC6FCBABE36F41 /* Pods-NailDiseaseSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDK-umbrella.h"; sourceTree = "<group>"; };
+		6B4C066B7F04701818240A871DBE53B3 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6EDCB6F5170668E62FBA19681F73B748 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist"; sourceTree = "<group>"; };
+		79F412DDD4619BB878D92C7E44B14098 /* Pods-NailDiseaseSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7B4A5F8FDFDB8BA208590A23041F991A /* Pods-NailDiseaseSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDK-dummy.m"; sourceTree = "<group>"; };
+		7E14D7F764F15E452B337851CEFF0227 /* Pods-NailDiseaseSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-acknowledgements.plist"; sourceTree = "<group>"; };
+		7FAA2DCCD1D6F12DA9F040B5D7C16827 /* Pods-NailDiseaseSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-Info.plist"; sourceTree = "<group>"; };
+		8776758333DC6344E8147B8C6713F640 /* Pods-NailDiseaseSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A290E69C7828F3DAC104ACFB654736EC /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A9DC399B4EAD0F69309D6541FADF305D /* Pods-NailDiseaseSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDK.modulemap"; sourceTree = "<group>"; };
+		EE3C206E0511A82DC097864060809D06 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap"; sourceTree = "<group>"; };
+		F573AF814AC724F8BC0AF66DA709A201 /* Pods-NailDiseaseSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AFCF40B971F5460E9DD6E6345FC38BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72C293F529990E8425F98B72F8B9A70 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC4FE298722BCBA2FA0497D8F386AB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				730D907C94CAF945B8331741ED128C2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8655FC8A4D8B9B26E7EE00792B475A8E /* Pods-NailDiseaseSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC399B4EAD0F69309D6541FADF305D /* Pods-NailDiseaseSDK.modulemap */,
+				79F412DDD4619BB878D92C7E44B14098 /* Pods-NailDiseaseSDK-acknowledgements.markdown */,
+				7E14D7F764F15E452B337851CEFF0227 /* Pods-NailDiseaseSDK-acknowledgements.plist */,
+				7B4A5F8FDFDB8BA208590A23041F991A /* Pods-NailDiseaseSDK-dummy.m */,
+				7FAA2DCCD1D6F12DA9F040B5D7C16827 /* Pods-NailDiseaseSDK-Info.plist */,
+				5CBE4E9451D87CCE11EC6FCBABE36F41 /* Pods-NailDiseaseSDK-umbrella.h */,
+				8776758333DC6344E8147B8C6713F640 /* Pods-NailDiseaseSDK.debug.xcconfig */,
+				F573AF814AC724F8BC0AF66DA709A201 /* Pods-NailDiseaseSDK.release.xcconfig */,
+			);
+			name = "Pods-NailDiseaseSDK";
+			path = "Target Support Files/Pods-NailDiseaseSDK";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E9C56AF5791EF006D7E2BDA21BEBBFC1 /* Products */,
+				FFFA18E309DA533012B056359CF4DA87 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4801F62A6B08CD9B5410329F1A18FDE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4801F62A6B08CD9B5410329F1A18FDE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E9C56AF5791EF006D7E2BDA21BEBBFC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */,
+				09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9959CF5757FD796401925473EF08A75 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE3C206E0511A82DC097864060809D06 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap */,
+				59EEE41B1677789478634A04E73B08E7 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown */,
+				A290E69C7828F3DAC104ACFB654736EC /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist */,
+				41F9B2BE01C29FD14C4402CA7064DE1A /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */,
+				6EDCB6F5170668E62FBA19681F73B748 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist */,
+				2CB874B8D93885CAECE070B87CB51007 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */,
+				6B4C066B7F04701818240A871DBE53B3 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */,
+				06C0042DA3A3B2594E65705C1A565F69 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */,
+			);
+			name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests";
+			path = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests";
+			sourceTree = "<group>";
+		};
+		FFFA18E309DA533012B056359CF4DA87 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8655FC8A4D8B9B26E7EE00792B475A8E /* Pods-NailDiseaseSDK */,
+				F9959CF5757FD796401925473EF08A75 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0CD4E938A03663A7CFBE173E3EADC8EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE19A18AE16743D69D556207660FD0D4 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		263AAA4AAE1A7ACF8F03176901C68001 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E30076F7C36F912F5BAD4222721E2CF /* Pods-NailDiseaseSDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C30ABDEEDEC85D076ED7EE059FA46A1 /* Pods-NailDiseaseSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB5C89ED7483607644F56082B8CB2AEA /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK" */;
+			buildPhases = (
+				263AAA4AAE1A7ACF8F03176901C68001 /* Headers */,
+				C41B82DE054C01D04BAED0CC72DB6727 /* Sources */,
+				7BC4FE298722BCBA2FA0497D8F386AB0 /* Frameworks */,
+				55DDAF6E1F9EB13FAB47BEFC86892B16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NailDiseaseSDK";
+			productName = Pods_NailDiseaseSDK;
+			productReference = 138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */;
+			productType = "com.apple.product-type.framework";
+		};
+		EDB51CCED64D73E96156D05DD08BC091 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C721877DAE640D9963DDE9E78823AFC4 /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK-NailDiseaseSDKTests" */;
+			buildPhases = (
+				0CD4E938A03663A7CFBE173E3EADC8EA /* Headers */,
+				CD90654F838E28768A957B561F70558D /* Sources */,
+				7AFCF40B971F5460E9DD6E6345FC38BD /* Frameworks */,
+				C078B52D72531FEF8F458BFE03749952 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests";
+			productName = Pods_NailDiseaseSDK_NailDiseaseSDKTests;
+			productReference = 09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E9C56AF5791EF006D7E2BDA21BEBBFC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C30ABDEEDEC85D076ED7EE059FA46A1 /* Pods-NailDiseaseSDK */,
+				EDB51CCED64D73E96156D05DD08BC091 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55DDAF6E1F9EB13FAB47BEFC86892B16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C078B52D72531FEF8F458BFE03749952 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C41B82DE054C01D04BAED0CC72DB6727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16A5041DF8DB7BC2A424D3CF52B101B6 /* Pods-NailDiseaseSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD90654F838E28768A957B561F70558D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F19FCF62A3C73A5A15E7F71CAF1746B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		531AB9B51913EE274022D67EB63CB4E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		54F7EBF34391C5F388C2C1744DD0B620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F573AF814AC724F8BC0AF66DA709A201 /* Pods-NailDiseaseSDK.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7F205077861455DF7740738B43AC10CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B4C066B7F04701818240A871DBE53B3 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A06A0B8B8C2AC1F57A3C67ACD4FEC0B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A6FB44BF3B730D3C28276BA8E50E5D48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8776758333DC6344E8147B8C6713F640 /* Pods-NailDiseaseSDK.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C31CC440E7C54E2E4AE342E19E2EA631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06C0042DA3A3B2594E65705C1A565F69 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A06A0B8B8C2AC1F57A3C67ACD4FEC0B3 /* Debug */,
+				531AB9B51913EE274022D67EB63CB4E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB5C89ED7483607644F56082B8CB2AEA /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6FB44BF3B730D3C28276BA8E50E5D48 /* Debug */,
+				54F7EBF34391C5F388C2C1744DD0B620 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C721877DAE640D9963DDE9E78823AFC4 /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK-NailDiseaseSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F205077861455DF7740738B43AC10CD /* Debug */,
+				C31CC440E7C54E2E4AE342E19E2EA631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
