@@ -174,6 +174,9 @@
 			);
 			mainGroup = 2407B52A2D5C5CE3005A330B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2481E4AA2D5C78B300FEEF77 /* XCRemoteSwiftPackageReference "tensorflow" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2407B5352D5C5CE3005A330B /* Products */;
 			projectDirPath = "";
@@ -482,6 +485,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2481E4AA2D5C78B300FEEF77 /* XCRemoteSwiftPackageReference "tensorflow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tensorflow/tensorflow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 2407B52B2D5C5CE3005A330B /* Project object */;
 }
