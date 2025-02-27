@@ -55,5 +55,23 @@ public class TFLiteImageProcessor {
 
             return Data(rgbData)
         }
+    
+     /// Preprocess an image to meet model input requirements.
+       public static func preprocessImage(_ image: UIImage) -> Data? {
+           guard let resizedImage = resize(image, to: CGSize(width: 224, height: 224)) else {
+               print(" ERROR: Failed to resize image")
+               return nil
+           }
+
+           guard let pixelBuffer = convertToBuffer(resizedImage) else {
+               print(" ERROR: Image preprocessing failed")
+               return nil
+           }
+
+           // Normalize pixel values to [0, 1]
+           let floatBuffer = pixelBuffer.map { Float($0) / 255.0 }
+           print("ℹ️ Preprocessed input data size: \(floatBuffer.count * MemoryLayout<Float>.stride)")
+           return Data(buffer: UnsafeBufferPointer(start: floatBuffer, count: floatBuffer.count))
+       }
 }
 
