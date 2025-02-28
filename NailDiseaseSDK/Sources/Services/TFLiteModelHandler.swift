@@ -18,14 +18,23 @@ public class TFLiteTest {
 public class TFLiteModelHandler: ObservableObject {
     @Published public var inferenceResult: [Float] = []
     private var interpreter: Interpreter?
-
+    
+    // Class labels for the model
+    private let labels = [
+        "Acral Lentiginous Melanoma",
+        "Blue Finger",
+        "Clubbing",
+        "Healthy Nail",
+        "Onychogryphosis",
+        "Pitting"
+    ]
     public init(modelName: String) {
         loadModel()
     }
     let frameworkBundle = Bundle(for: TFLiteModelHandler.self)
-    
+
     private func loadModel() {
-        guard let modelPath =  frameworkBundle.path(forResource: "model", ofType: "tflite") else {
+        guard let modelPath = frameworkBundle.path(forResource: "model", ofType: "tflite") else {
             fatalError("Failed to load model.tflite. Ensure the file exists in your Xcode project and is added to the Copy Bundle Resources.")
         }
 
@@ -41,41 +50,52 @@ public class TFLiteModelHandler: ObservableObject {
     }
 
     /// Runs inference on input data and updates `inferenceResult`
-func runInference(inputData: Data) {
-    guard let interpreter = interpreter else {
-        print("Interpreter is not initialized.")
-        return
-    }
-
-    do {
-        // Validate input tensor size
-        let inputTensor = try interpreter.input(at: 0)
-        print("Model expects input size: \(inputTensor.shape.dimensions)")
-
-        // Verify input data size matches model requirements
-        guard inputData.count == inputTensor.data.count else {
-            print("Error: Input data size \(inputData.count) does not match model input size \(inputTensor.data.count)")
+    public func runInference(inputData: Data) {
+        guard let interpreter = interpreter else {
+            print("Interpreter is not initialized.")
             return
+            }
+        do {
+            let inputTensor = try interpreter.input(at: 0)
+            print("Model expects input size: \(inputTensor.shape.dimensions)")
+            guard inputData.count == inputTensor.data.count else {
+                print("Error: Input data size \(inputData.count) does not match model input size \(inputTensor.data.count)")
+                return
+            }
+
+            try interpreter.copy(inputData, toInputAt: 0)
+
+            try interpreter.invoke()
+
+            let outputTensor = try interpreter.output(at: 0)
+            inferenceResult = outputTensor.data.toArray(type: Float.self)
+            print("Inference Result: \(inferenceResult)")
+        } catch {
+            print("Error during inference: \(error.localizedDescription)")
+        }
+    }
+    
+    /// Returns the predicted label based on inference results
+    public func getInferenceLabel() -> String {
+        guard !inferenceResult.isEmpty else {
+            return "No inference result available"
         }
 
-        // Copy input data into the interpreter's input tensor
-        try interpreter.copy(inputData, toInputAt: 0)
+        // Ensure the number of labels matches the result length
+        guard labels.count == inferenceResult.count else {
+            print("Warning: Label count (\(labels.count)) does not match result count (\(inferenceResult.count)).")
+            return "Label mismatch error"
+        }
 
-        // Run inference
-        try interpreter.invoke()
+        // Find the index of the highest probability
+        guard let maxIndex = inferenceResult.firstIndex(of: inferenceResult.max() ?? 0) else {
+            return "Unknown result"
+        }
 
-        // Retrieve the output tensor and convert it to an array of Floats
-        let outputTensor = try interpreter.output(at: 0)
-        inferenceResult = outputTensor.data.toArray(type: Float.self)
-        print("Inference Result: \(inferenceResult)")
-    } catch {
-        print("Error during inference: \(error.localizedDescription)")
+        return labels[maxIndex]
     }
 }
-}
 
-
-// Helper extension to convert Data to an array
 extension Data {
     func toArray<T>(type: T.Type) -> [T] {
         return self.withUnsafeBytes {
