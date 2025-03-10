@@ -18,18 +18,34 @@ jobs:
         run: ls -la
         working-directory: ${{ github.workspace }}
 
-      - name: Find and Set Project Directory
-        id: project-dir
-        run: echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
+      - name: Install Homebrew (if not installed)
+        run: |
+          if ! command -v brew &> /dev/null
+          then
+            echo "Homebrew not found. Installing..."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          else
+            echo "Homebrew is already installed."
+          fi
 
-      - name: Verify Found Directory
-        run: echo "Project directory is $PROJECT_DIR"
+      - name: Install Dependencies via Homebrew
+        run: |
+          brew update
+          brew install ruby swiftlint
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
           bundler-cache: true
+
+      - name: Find and Set Project Directory
+        id: project-dir
+        run: |
+          echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
+          echo "Project directory detected as: $(ls -d */ | head -n 1)"
 
       - name: Install CocoaPods
         run: |
