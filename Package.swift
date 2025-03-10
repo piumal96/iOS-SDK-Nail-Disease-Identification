@@ -1,10 +1,11 @@
 // swift-tools-version: 5.9
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "NailDiseaseSDK",
     platforms: [
-        .iOS(.v14)  // Set your minimum iOS version
+        .iOS(.v14)  
     ],
     products: [
         .library(
@@ -13,18 +14,26 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // Add third-party dependencies if needed
+        // Add third-party dependencies here if needed
     ],
     targets: [
         .target(
             name: "NailDiseaseSDK",
             dependencies: [],
-            path: "NailDiseaseSDK"   
+            path: "NailDiseaseSDK",
+            exclude: [],  
+            resources: [   
+                .process("model.tflite")  
+            ]
         ),
         .testTarget(
             name: "NailDiseaseSDKTests",
             dependencies: ["NailDiseaseSDK"],
-            path: "NailDiseaseSDKTests"  
+            path: "NailDiseaseSDKTests",
+            exclude: [],
+            resources: [
+                .process("TestImages/test_image.jpg")  
+            ]
         ),
     ]
 )
