@@ -43,6 +43,17 @@ final class ImageProcessorTest: XCTestCase {
         XCTAssertEqual(resizedImage?.size, newSize, "Resized image size should match the expected size")
     }
 
+    func testConvertToBuffer() {
+        guard let image = loadTestImage(named: "test_image") else {
+            XCTFail("Failed to load test image")
+            return
+        }
+        
+        let buffer = TFLiteImageProcessor.convertToBuffer(image)
+        
+        XCTAssertNotNil(buffer, "Image buffer should not be nil")
+        XCTAssertGreaterThan(buffer!.count, 0, "Buffer should contain data")
+    }
 
 
     func testExample() throws {
