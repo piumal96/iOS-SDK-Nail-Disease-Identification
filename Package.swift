@@ -18,13 +18,12 @@ let package = Package(
     targets: [
         .target(
             name: "NailDiseaseSDK",
-            dependencies: [],
-            path: "Sources"  /
+            dependencies: []
         ),
         .testTarget(
             name: "NailDiseaseSDKTests",
-            dependencies: ["NailDiseaseSDK"],
-            path: "Tests"
+            dependencies: ["NailDiseaseSDK"]
         ),
     ]
 )
+
