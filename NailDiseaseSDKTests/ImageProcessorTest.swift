@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import NailDiseaseSDK
 
 final class ImageProcessorTest: XCTestCase {
 
@@ -16,6 +17,33 @@ final class ImageProcessorTest: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func loadTestImage(named imageName: String) -> UIImage? {
+        let bundle = Bundle(for: type(of: self))
+        guard let url = bundle.url(forResource: imageName, withExtension: "jpg") else {
+            return nil
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            return nil
+        }
+        return UIImage(data: data)
+    }
+
+ 
+    func testResizeImage() {
+        guard let originalImage = loadTestImage(named: "test_image") else {
+            XCTFail("Failed to load test image")
+            return
+        }
+        
+        let newSize = CGSize(width: 224, height: 224)
+        let resizedImage = TFLiteImageProcessor.resize(originalImage, to: newSize)
+        
+        XCTAssertNotNil(resizedImage, "Resized image should not be nil")
+        XCTAssertEqual(resizedImage?.size, newSize, "Resized image size should match the expected size")
+    }
+
+
 
     func testExample() throws {
         // This is an example of a functional test case.
