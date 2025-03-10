@@ -22,7 +22,7 @@ jobs:
         run: echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
 
       - name: Verify Found Directory
-        run: echo "Project directory is $PROJECT_DIR"
+        run: echo "Project directory is ${{ env.PROJECT_DIR }}"
 
       - name: Install Homebrew (if not installed)
         run: |
@@ -44,7 +44,7 @@ jobs:
 
       - name: Install CocoaPods
         run: pod install
-        working-directory: ${{ github.workspace }}/$PROJECT_DIR
+        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v1
@@ -53,8 +53,8 @@ jobs:
 
       - name: Build
         run: swift build --configuration release
-        working-directory: ${{ github.workspace }}/$PROJECT_DIR
+        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
       - name: Run Tests
         run: swift test --configuration release
-        working-directory: ${{ github.workspace }}/$PROJECT_DIR
+        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
