@@ -14,17 +14,27 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: List repository contents (debugging)
+        run: ls -la
+        working-directory: ${{ github.workspace }}
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
           bundler-cache: true
 
+      - name: Find project directory
+        run: echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
+
+      - name: Verify found directory
+        run: echo "Project directory is $PROJECT_DIR"
+
       - name: Install CocoaPods
         run: |
           gem install cocoapods
           pod install
-        working-directory: ./YourProjectDirectory
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v1
@@ -33,8 +43,8 @@ jobs:
 
       - name: Build
         run: swift build --configuration release
-        working-directory: ./YourProjectDirectory
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
 
       - name: Run Tests
         run: swift test --configuration release
-        working-directory: ./YourProjectDirectory
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
