@@ -1,10 +1,10 @@
-// swift-tools-version:5.9
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
     name: "NailDiseaseSDK",
     platforms: [
-        .iOS(.v14)  
+        .iOS(.v14)  // Set your minimum iOS version
     ],
     products: [
         .library(
@@ -13,17 +13,18 @@ let package = Package(
         ),
     ],
     dependencies: [
-        
+        // Add third-party dependencies if needed
     ],
     targets: [
         .target(
             name: "NailDiseaseSDK",
-            dependencies: []
+            dependencies: [],
+            path: "NailDiseaseSDK"   
         ),
         .testTarget(
             name: "NailDiseaseSDKTests",
-            dependencies: ["NailDiseaseSDK"]
+            dependencies: ["NailDiseaseSDK"],
+            path: "NailDiseaseSDKTests"  
         ),
     ]
 )
-
