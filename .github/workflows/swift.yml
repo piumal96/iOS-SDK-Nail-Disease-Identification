@@ -16,7 +16,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7' s
+          bundler-cache: trues
+
+      - name: Install CocoaPods
+        run: |
+          gem install cocoapods
+          pod install
+        working-directory: ./YourProjectDirectory
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: '6.0'
+
+      - name: Build
+        run: swift build --configuration release
+
+      - name: Run tests
+        run: swift test --configuration release
