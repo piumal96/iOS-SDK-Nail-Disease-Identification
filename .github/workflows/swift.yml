@@ -30,8 +30,8 @@ jobs:
           brew install swiftlint
           brew install cocoapods
 
-      - name: Install CocoaPods
-        run: pod install
+      - name: Install CocoaPods Dependencies
+        run: pod install --repo-update
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
       - name: Set up Swift
@@ -39,19 +39,18 @@ jobs:
         with:
           swift-version: '5.9'
 
-      - name: Clean and Reset Dependencies
+      - name: Clean and Reset Xcode Build Cache
         run: |
-          rm -rf .build
-          swift package reset
-          swift package resolve
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          xcodebuild -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'generic/platform=iOS' clean
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
-      - name: Build for iOS
+      - name: Build with Xcode (iOS Only)
         run: |
-          xcodebuild -scheme NailDiseaseSDK -destination 'generic/platform=iOS' clean build
+          xcodebuild -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'generic/platform=iOS' build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
       - name: Run Tests on iOS Simulator
         run: |
-          xcodebuild test -scheme NailDiseaseSDK -destination 'platform=iOS Simulator,name=iPhone 14'
+          xcodebuild test -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'platform=iOS Simulator,name=iPhone 14'
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
