@@ -1,13 +1,14 @@
 //
-//  NailDiseaseSDKTests.swift
+//  ImageProcessorTest.swift
 //  NailDiseaseSDKTests
 //
 //  Created by Piumal Kumara on 2025-03-10.
 //
 
 import XCTest
+@testable import NailDiseaseSDK
 
-final class NailDiseaseSDKTests: XCTestCase {
+final class ImageProcessorTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -17,6 +18,32 @@ final class NailDiseaseSDKTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    func loadTestImage(named imageName: String) -> UIImage? {
+        let bundle = Bundle(for: type(of: self))
+        guard let url = bundle.url(forResource: imageName, withExtension: "jpg") else {
+            return nil
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            return nil
+        }
+        return UIImage(data: data)
+    }
+
+ 
+    func testResizeImage() {
+        guard let originalImage = loadTestImage(named: "test_image") else {
+            XCTFail("Failed to load test image")
+            return
+        }
+        
+        let newSize = CGSize(width: 224, height: 224)
+        let resizedImage = TFLiteImageProcessor.resize(originalImage, to: newSize)
+        
+        XCTAssertNotNil(resizedImage, "Resized image should not be nil")
+        XCTAssertEqual(resizedImage?.size, newSize, "Resized image size should match the expected size")
+    }
+
+
 
     func testExample() throws {
         // This is an example of a functional test case.
@@ -28,7 +55,7 @@ final class NailDiseaseSDKTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
