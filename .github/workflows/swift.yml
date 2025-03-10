@@ -18,6 +18,12 @@ jobs:
         run: ls -la
         working-directory: ${{ github.workspace }}
 
+      - name: Find and Set Project Directory
+        run: echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
+
+      - name: Verify Found Directory
+        run: echo "Project directory is $PROJECT_DIR"
+
       - name: Install Homebrew (if not installed)
         run: |
           if ! command -v brew &> /dev/null
@@ -34,24 +40,11 @@ jobs:
         run: |
           brew update
           brew install ruby swiftlint
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
-          bundler-cache: true
-
-      - name: Find and Set Project Directory
-        id: project-dir
-        run: |
-          echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
-          echo "Project directory detected as: $(ls -d */ | head -n 1)"
+          brew install cocoapods
 
       - name: Install CocoaPods
-        run: |
-          brew install cocoapods
-          pod install
-        working-directory: ${{ github.workspace }}/$(ls -d */ | head -n 1)
+        run: pod install
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v1
@@ -60,8 +53,8 @@ jobs:
 
       - name: Build
         run: swift build --configuration release
-        working-directory: ${{ github.workspace }}/$(ls -d */ | head -n 1)
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
 
       - name: Run Tests
         run: swift test --configuration release
-        working-directory: ${{ github.workspace }}/$(ls -d */ | head -n 1)
+        working-directory: ${{ github.workspace }}/$PROJECT_DIR
