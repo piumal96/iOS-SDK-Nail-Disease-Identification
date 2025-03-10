@@ -19,7 +19,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Find and Set Project Directory
-        run: echo "PROJECT_DIR=$(ls -d */ | head -n 1)" >> $GITHUB_ENV
+        run: echo "PROJECT_DIR=NailDiseaseSDK" >> $GITHUB_ENV
 
       - name: Verify Found Directory
         run: echo "Project directory is ${{ env.PROJECT_DIR }}"
@@ -32,19 +32,24 @@ jobs:
 
       - name: Install CocoaPods Dependencies
         run: pod install --repo-update
-        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
+        working-directory: ${{ github.workspace }}/NailDiseaseSDK
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v1
         with:
           swift-version: '5.9'
 
+      - name: Clean and Reset Xcode Build Cache
+        run: |
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+        working-directory: ${{ github.workspace }}/NailDiseaseSDK
+
       - name: Build with Xcode (iOS Only)
         run: |
           xcodebuild -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'generic/platform=iOS' build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
+        working-directory: ${{ github.workspace }}/NailDiseaseSDK
 
       - name: Run Tests on iOS Simulator
         run: |
           xcodebuild test -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'platform=iOS Simulator,name=iPhone 14'
-        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
+        working-directory: ${{ github.workspace }}/NailDiseaseSDK
