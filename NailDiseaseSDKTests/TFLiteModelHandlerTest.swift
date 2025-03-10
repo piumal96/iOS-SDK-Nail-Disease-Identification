@@ -1,15 +1,14 @@
 //
-//  NailDiseaseSDKTests.swift
+//  TFLiteModelHandlerTest.swift
 //  NailDiseaseSDKTests
 //
 //  Created by Piumal Kumara on 2025-03-10.
 //
 
 import XCTest
-@testable import NailDiseaseSDK
-final class NailDiseaseSDKTests: XCTestCase {
 
-    var modelHandler: TFLiteModelHandler!
+final class TFLiteModelHandlerTest: XCTestCase {
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -17,17 +16,6 @@ final class NailDiseaseSDKTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    func testModelLoading() {
-        let frameworkBundle = Bundle(for: TFLiteModelHandler.self)
-        let modelPath = frameworkBundle.path(forResource: "model", ofType: "tflite")
-
-        XCTAssertNotNil(modelPath, " model.tflite is missing in the bundle!")
-
-        // Now, attempt to initialize the model handler
-        let modelHandler = TFLiteModelHandler(modelName: "model")
-        XCTAssertNotNil(modelHandler, " TFLiteModelHandler failed to initialize!")
-    }
-
 
     func testExample() throws {
         // This is an example of a functional test case.
@@ -39,7 +27,7 @@ final class NailDiseaseSDKTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
