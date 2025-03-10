@@ -24,22 +24,10 @@ jobs:
       - name: Verify Found Directory
         run: echo "Project directory is ${{ env.PROJECT_DIR }}"
 
-      - name: Install Homebrew (if not installed)
-        run: |
-          if ! command -v brew &> /dev/null
-          then
-            echo "Homebrew not found. Installing..."
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-          else
-            echo "Homebrew is already installed."
-          fi
-
       - name: Install Dependencies via Homebrew
         run: |
           brew update
-          brew install ruby swiftlint
+          brew install swiftlint
           brew install cocoapods
 
       - name: Install CocoaPods
@@ -51,10 +39,19 @@ jobs:
         with:
           swift-version: '5.9'
 
-      - name: Build
-        run: swift build --configuration release
+      - name: Clean and Reset Dependencies
+        run: |
+          rm -rf .build
+          swift package reset
+          swift package resolve
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
 
-      - name: Run Tests
-        run: swift test --configuration release
+      - name: Build for iOS
+        run: |
+          xcodebuild -scheme NailDiseaseSDK -destination 'generic/platform=iOS' clean build
+        working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
+
+      - name: Run Tests on iOS Simulator
+        run: |
+          xcodebuild test -scheme NailDiseaseSDK -destination 'platform=iOS Simulator,name=iPhone 14'
         working-directory: ${{ github.workspace }}/${{ env.PROJECT_DIR }}
