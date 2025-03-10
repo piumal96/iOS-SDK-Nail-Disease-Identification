@@ -1,0 +1,6 @@
+framework module NailDiseaseSDK {
+  umbrella header "NailDiseaseSDK.h"
+  export *
+
+  module * { export * }
+}
