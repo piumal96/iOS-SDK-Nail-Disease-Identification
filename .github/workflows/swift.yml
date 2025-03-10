@@ -49,7 +49,7 @@ jobs:
 
       - name: Install CocoaPods
         run: |
-          gem install cocoapods
+          brew install cocoapods
           pod install
         working-directory: ${{ github.workspace }}/$(ls -d */ | head -n 1)
 
