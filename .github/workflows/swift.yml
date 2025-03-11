@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   build:
@@ -41,7 +42,7 @@ jobs:
           echo "🧹 Cleaning previous artifacts..."
           rm -rf "$BUILD_DIR"
 
-          # Build for iOS and iOS Simulator (with fixes)
+          # Build for iOS devices
           echo "📱 Building for iOS devices..."
           xcodebuild build \
             -workspace NailDiseaseSDK.xcworkspace \
@@ -53,16 +54,16 @@ jobs:
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
             SKIP_INSTALL=NO
 
-            echo "🖥️ Building for iOS Simulator..."
-            xcodebuild build \
-              -workspace NailDiseaseSDK.xcworkspace \
-              -scheme NailDiseaseSDK \
-              -destination "generic/platform=iOS Simulator" \
-              -configuration Release \
-              -sdk iphonesimulator \
-              -derivedDataPath "$BUILD_DIR" \
-              BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-              SKIP_INSTALL=NO
+          echo "🖥️ Building for iOS Simulator..."
+          xcodebuild build \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS Simulator" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$BUILD_DIR" \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO
 
           # Locate built frameworks
           IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
@@ -80,10 +81,8 @@ jobs:
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
             -framework "$SIMULATOR_FRAMEWORK_PATH" \
-            -allow-internal-distribution\
+            -allow-internal-distribution \
             -output "$XCFRAMEWORK_PATH"
-
-
 
           # Zip `.xcframework`
           echo "📦 Creating ZIP archive..."
@@ -99,8 +98,36 @@ jobs:
 
         working-directory: ${{ github.workspace }}
 
-      - name: Upload `.xcframework`
-        uses: actions/upload-artifact@v4
+      - name: Compute Checksum
+        id: checksum
+        run: |
+          CHECKSUM=$(swift package compute-checksum build/NailDiseaseSDK.xcframework.zip)
+          echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
+
+      - name: Create GitHub Release & Upload `.xcframework`
+        uses: softprops/action-gh-release@v1
         with:
-          name: NailDiseaseSDK.xcframework.zip
-          path: ${{ github.workspace }}/build/NailDiseaseSDK.xcframework.zip
+          tag_name: v1.0.0
+          name: "NailDiseaseSDK Release v1.0.0"
+          body: "Automated release of NailDiseaseSDK with SPM support"
+          draft: false
+          prerelease: false
+          files: |
+            build/NailDiseaseSDK.xcframework.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update `Package.swift` with New Checksum
+        run: |
+          sed -i '' 's/YOUR_CHECKSUM_HERE/${{ env.CHECKSUM }}/g' Package.swift
+        working-directory: ${{ github.workspace }}
+
+      - name: Commit & Push Updated `Package.swift`
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Package.swift
+          git commit -m "📦 Updated Package.swift with new checksum"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
