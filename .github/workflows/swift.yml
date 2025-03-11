@@ -21,78 +21,74 @@ jobs:
         run: pod install --repo-update
         working-directory: ${{ github.workspace }}
 
-      - name: Build `.xcframework` (iOS Only)
+      - name: Build `.xcframework`
         run: |
           echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
 
-          # Define Build Paths
+          # Define paths
           BUILD_DIR="${{ github.workspace }}/build"
           XCFRAMEWORK_PATH="${BUILD_DIR}/NailDiseaseSDK.xcframework"
           ZIP_FILE="${BUILD_DIR}/NailDiseaseSDK.xcframework.zip"
 
           # Clean previous builds
-          echo "🧹 Cleaning previous build artifacts..."
-          rm -rf "${BUILD_DIR}" "${XCFRAMEWORK_PATH}" "${ZIP_FILE}"
+          echo "🧹 Cleaning previous artifacts..."
+          rm -rf "$BUILD_DIR"
 
-          # Build for iOS (Devices)
-          echo "📱 Building for iOS devices..."
-          xcodebuild build \
-            -workspace NailDiseaseSDK.xcworkspace \
-            -scheme NailDiseaseSDK \
-            -destination "generic/platform=iOS" \
-            -configuration Release \
-            -sdk iphoneos \
-            -derivedDataPath "${BUILD_DIR}"
+          # Build for iOS (Device & Simulator)
+          for PLATFORM in "iOS" "iOS Simulator"; do
+            echo "📱 Building for $PLATFORM..."
+            xcodebuild build \
+              -workspace NailDiseaseSDK.xcworkspace \
+              -scheme NailDiseaseSDK \
+              -destination "generic/platform=$PLATFORM" \
+              -configuration Release \
+              -sdk $(echo "$PLATFORM" | awk '{print tolower($0)}') \
+              -derivedDataPath "$BUILD_DIR" \
+              BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+              SKIP_INSTALL=NO
+          done
 
-          # Build for iOS Simulator
-          echo "🖥️ Building for iOS Simulator..."
-          xcodebuild build \
-            -workspace NailDiseaseSDK.xcworkspace \
-            -scheme NailDiseaseSDK \
-            -destination "generic/platform=iOS Simulator" \
-            -configuration Release \
-            -sdk iphonesimulator \
-            -derivedDataPath "${BUILD_DIR}"
+          # Locate built frameworks
+          IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
+          SIMULATOR_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
 
-          # Find correct framework paths
-          IOS_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
-          SIMULATOR_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
+          # Verify framework paths
+          [[ -d "$IOS_FRAMEWORK_PATH" && -d "$SIMULATOR_FRAMEWORK_PATH" ]] || {
+            echo "❌ ERROR: Frameworks not found!"
+            find "$BUILD_DIR" -name 'NailDiseaseSDK.framework'
+            exit 1
+          }
 
-          # Verify paths before proceeding
-          if [[ ! -d "$IOS_FRAMEWORK_PATH" || ! -d "$SIMULATOR_FRAMEWORK_PATH" ]]; then
-              echo "❌ ERROR: Frameworks not found in expected locations!"
-              echo "Check your build output using: find ${BUILD_DIR} -name 'NailDiseaseSDK.framework'"
-              exit 1
-          fi
-
-          # Create .xcframework in the build directory
+          # Create `.xcframework`
           echo "🔗 Creating .xcframework..."
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
             -framework "$SIMULATOR_FRAMEWORK_PATH" \
             -output "$XCFRAMEWORK_PATH"
 
-          # Verify the exported .xcframework
-          echo "📂 Verifying .xcframework structure..."
-          ls -R "$XCFRAMEWORK_PATH"
-
-          # Zip the .xcframework in the correct directory
-          echo "📦 Zipping the .xcframework..."
-          cd "$BUILD_DIR"
-          zip -r "NailDiseaseSDK.xcframework.zip" "NailDiseaseSDK.xcframework"
-          cd ..
-
-          # Verify ZIP file exists before upload
-          if [[ ! -f "$ZIP_FILE" ]]; then
-              echo "❌ ERROR: ZIP file not found!"
+          # Verify `.swiftinterface` exists
+          echo "🔍 Verifying Swift interface files..."
+          SWIFT_INTERFACE_FILES=$(find "$XCFRAMEWORK_PATH" -name "*.swiftinterface" | wc -l)
+          if [[ $SWIFT_INTERFACE_FILES -eq 0 ]]; then
+              echo "❌ ERROR: Missing Swift interface files!"
               exit 1
           fi
 
-          echo "✅ Build complete! Your .xcframework is ready: $ZIP_FILE"
+          # Zip `.xcframework`
+          echo "📦 Creating ZIP archive..."
+          (cd "$BUILD_DIR" && zip -r "$(basename "$ZIP_FILE")" "$(basename "$XCFRAMEWORK_PATH")")
+
+          # Confirm ZIP exists
+          [[ -f "$ZIP_FILE" ]] || {
+            echo "❌ ERROR: ZIP file not created!"
+            exit 1
+          }
+
+          echo "✅ Build complete! Ready for upload: $ZIP_FILE"
 
         working-directory: ${{ github.workspace }}
 
-      - name: Upload `.xcframework` as an Artifact
+      - name: Upload `.xcframework`
         uses: actions/upload-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework.zip
