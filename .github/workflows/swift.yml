@@ -119,48 +119,37 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Download `.xcframework.zip` from Artifacts
+      - name: Download `.xcframework` from Artifacts
         uses: actions/download-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
           path: Versions/
 
-      - name: Verify ZIP File Exists
+      - name: Verify `.xcframework` Exists
         run: |
-          if [ ! -f "Versions/NailDiseaseSDK.xcframework.zip" ]; then
-            echo "❌ ERROR: NailDiseaseSDK.xcframework.zip not found in Versions directory!"
+          if [ ! -d "Versions/NailDiseaseSDK.xcframework" ]; then
+            echo "❌ ERROR: NailDiseaseSDK.xcframework not found!"
             exit 1
           fi
 
-      - name: Ensure Git Tag Exists Before Release  # ✅ Fixes missing version in Xcode
+      - name: Move `.xcframework` to Versioned Directory
+        run: |
+          VERSION=${{ github.ref_name }}
+          mkdir -p Versions/$VERSION
+          mv Versions/NailDiseaseSDK.xcframework Versions/$VERSION/
+
+      - name: Ensure Git Tag Exists Before Release
         run: |
           VERSION=${{ github.ref_name }}
           git tag -f "$VERSION"
           git push origin "$VERSION" --force
 
-      - name: Upload to GitHub Release
+      - name: Update `Package.swift` with New Version
         run: |
           VERSION=${{ github.ref_name }}
-          gh release create "$VERSION" Versions/NailDiseaseSDK.xcframework.zip \
-            --title "NailDiseaseSDK Release $VERSION" \
-            --notes "Automated release of NailDiseaseSDK $VERSION"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
-      - name: Compute & Update Checksum
-        run: |
-          CHECKSUM=$(swift package compute-checksum Versions/NailDiseaseSDK.xcframework.zip)
-          echo "Computed Checksum: $CHECKSUM"
-          echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
-
-      - name: Update `Package.swift` with New Release URL
-        run: |
-          VERSION=${{ github.ref_name }}
-          RELEASE_URL="https://github.com/piumal96/NailDiseaseSDK-IOS/releases/download/$VERSION/NailDiseaseSDK.xcframework.zip"
-
-          # ✅ Ensure URL and version are updated correctly
-          sed -i "s|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g" Package.swift
-          sed -i "s|https://github.com/.*.zip|$RELEASE_URL|g" Package.swift
+          # ✅ Ensure version is updated correctly in Package.swift
+          sed -i "s|path: \"./NailDiseaseSDK.xcframework\"|path: \"Versions/$VERSION/NailDiseaseSDK.xcframework\"|g" Package.swift
           sed -i "s|1.0.0|$VERSION|g" Package.swift
         shell: bash
 
@@ -168,9 +157,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Package.swift
+          git add .
           git commit -m "📦 Published $VERSION of NailDiseaseSDK"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-
