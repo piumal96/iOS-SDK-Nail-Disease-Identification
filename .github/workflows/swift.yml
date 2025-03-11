@@ -1,3 +1,4 @@
+
 name: CI Pipeline
 
 on:
@@ -119,24 +120,24 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Download `.xcframework` from Artifacts
+      - name: Download `.xcframework.zip` from Artifacts
         uses: actions/download-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
-          path: Versions/
+          path: .
 
-      - name: Verify `.xcframework` Exists
+      - name: Verify ZIP File Exists
         run: |
-          if [ ! -d "Versions/NailDiseaseSDK.xcframework" ]; then
-            echo "❌ ERROR: NailDiseaseSDK.xcframework not found!"
+          if [ ! -f "NailDiseaseSDK.xcframework.zip" ]; then
+            echo "❌ ERROR: NailDiseaseSDK.xcframework.zip not found!"
             exit 1
           fi
 
-      - name: Move `.xcframework` to Versioned Directory
+      - name: Unzip `.xcframework.zip` and Place in Root
         run: |
-          VERSION=${{ github.ref_name }}
-          mkdir -p Versions/$VERSION
-          mv Versions/NailDiseaseSDK.xcframework Versions/$VERSION/
+          rm -rf NailDiseaseSDK.xcframework  # ✅ Remove old framework
+          unzip NailDiseaseSDK.xcframework.zip -d .
+          rm -f NailDiseaseSDK.xcframework.zip  # ✅ Clean up ZIP file
 
       - name: Ensure Git Tag Exists Before Release
         run: |
@@ -144,12 +145,12 @@ jobs:
           git tag -f "$VERSION"
           git push origin "$VERSION" --force
 
-      - name: Update `Package.swift` with New Version
+      - name: Update `Package.swift` to Point to Root `.xcframework`
         run: |
           VERSION=${{ github.ref_name }}
 
-          # ✅ Ensure version is updated correctly in Package.swift
-          sed -i "s|path: \"./NailDiseaseSDK.xcframework\"|path: \"Versions/$VERSION/NailDiseaseSDK.xcframework\"|g" Package.swift
+          # ✅ Ensure Package.swift correctly points to the extracted framework
+          sed -i "s|path: \"./NailDiseaseSDK.xcframework\"|path: \"./NailDiseaseSDK.xcframework\"|g" Package.swift
           sed -i "s|1.0.0|$VERSION|g" Package.swift
         shell: bash
 
@@ -157,7 +158,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add NailDiseaseSDK.xcframework Package.swift
           git commit -m "📦 Published $VERSION of NailDiseaseSDK"
           git push origin main
         env:
