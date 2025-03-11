@@ -119,7 +119,7 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Download `.xcframework.zip` from Artifacts  #  Download Before Use
+      - name: Download `.xcframework.zip` from Artifacts
         uses: actions/download-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
@@ -132,11 +132,20 @@ jobs:
             exit 1
           fi
 
-      - name: Copy Built Framework to SPM Repo
+      - name: Upload to GitHub Release
         run: |
           VERSION=${{ github.ref_name }}
-          mkdir -p Versions/$VERSION
-          mv Versions/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
+          gh release create "$VERSION" Versions/NailDiseaseSDK.xcframework.zip \
+            --title "NailDiseaseSDK Release $VERSION" \
+            --notes "Automated release of NailDiseaseSDK $VERSION"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Compute & Update Checksum
+        run: |
+          CHECKSUM=$(swift package compute-checksum Versions/NailDiseaseSDK.xcframework.zip)
+          echo "Computed Checksum: $CHECKSUM"
+          echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
 
       - name: Update `Package.swift`
         run: |
@@ -148,7 +157,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add Package.swift
           git commit -m "📦 Published $VERSION of NailDiseaseSDK"
           git push origin main
         env:
