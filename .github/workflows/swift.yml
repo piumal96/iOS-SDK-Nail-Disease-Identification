@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     tags:
-      - "v*.*.*"  
+      - "*.*.*"  
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -161,7 +161,7 @@ jobs:
           # ✅ Ensure URL and version are updated correctly
           sed -i "s|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g" Package.swift
           sed -i "s|https://github.com/.*.zip|$RELEASE_URL|g" Package.swift
-          sed -i "s|v1.0.0|$VERSION|g" Package.swift
+          sed -i "s|1.0.0|$VERSION|g" Package.swift
         shell: bash
 
       - name: Commit & Push Updated SPM Repository
