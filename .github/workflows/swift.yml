@@ -21,18 +21,22 @@ jobs:
         run: pod install --repo-update
         working-directory: ${{ github.workspace }}
 
+   
       - name: Build `.xcframework` (iOS Only)
         run: |
+          echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
+
           # Define Build Paths
-          BUILD_DIR="DerivedData"
+          BUILD_DIR="build"
           IOS_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
           SIMULATOR_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
-          XCFRAMEWORK_OUTPUT="build/NailDiseaseSDK.xcframework"
+          XCFRAMEWORK_OUTPUT="${BUILD_DIR}/NailDiseaseSDK.xcframework"
 
           # Clean previous builds
-          rm -rf "${BUILD_DIR}" build
+          echo "🧹 Cleaning previous build artifacts..."
+          rm -rf "${BUILD_DIR}" NailDiseaseSDK.xcframework
 
-          # Build for iOS Devices
+          # Build for iOS (Devices)
           echo "📱 Building for iOS devices..."
           xcodebuild build \
             -workspace NailDiseaseSDK.xcworkspace \
@@ -52,30 +56,30 @@ jobs:
             -sdk iphonesimulator \
             -derivedDataPath "${BUILD_DIR}"
 
-          # Verify the framework paths before creating xcframework
+          # Verify framework paths before creating .xcframework
           if [[ ! -d "$IOS_FRAMEWORK_PATH" || ! -d "$SIMULATOR_FRAMEWORK_PATH" ]]; then
-            echo "❌ ERROR: Frameworks not found at expected paths!"
-            find "${BUILD_DIR}" -name "*.framework"
-            exit 1
+              echo "❌ ERROR: Frameworks not found in expected locations!"
+              echo "Check build output with: find ${BUILD_DIR} -name 'NailDiseaseSDK.framework'"
+              exit 1
           fi
 
-          # Create the .xcframework
+          # Create .xcframework
           echo "🔗 Creating .xcframework..."
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
             -framework "$SIMULATOR_FRAMEWORK_PATH" \
             -output "$XCFRAMEWORK_OUTPUT"
 
-        working-directory: ${{ github.workspace }}
+          # Verify the exported .xcframework
+          echo "📂 Verifying .xcframework structure..."
+          ls -R "$XCFRAMEWORK_OUTPUT"
 
-      - name: Verify `.xcframework` Output
-        run: ls -R build/
-        working-directory: ${{ github.workspace }}
+          # Zip the .xcframework for easy distribution
+          echo "📦 Zipping the .xcframework..."
+          zip -r NailDiseaseSDK.xcframework.zip "$XCFRAMEWORK_OUTPUT"
 
-      - name: Zip the `.xcframework` for Distribution
-        run: |
-          cd build
-          zip -r NailDiseaseSDK.xcframework.zip NailDiseaseSDK.xcframework
+          echo "✅ Build complete! Your .xcframework is ready: NailDiseaseSDK.xcframework.zip"
+
         working-directory: ${{ github.workspace }}
 
       - name: Upload `.xcframework` as an Artifact
