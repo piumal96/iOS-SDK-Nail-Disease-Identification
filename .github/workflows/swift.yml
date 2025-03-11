@@ -107,7 +107,7 @@ jobs:
           name: NailDiseaseSDK.xcframework
           path: build/NailDiseaseSDK.xcframework.zip
 
-  publish-spm:
+   publish-spm:
     runs-on: ubuntu-latest
     needs: build  # Runs after build is successful
 
@@ -132,6 +132,12 @@ jobs:
             exit 1
           fi
 
+      - name: Ensure Git Tag Exists Before Release  # ✅ Fixes missing version in Xcode
+        run: |
+          VERSION=${{ github.ref_name }}
+          git tag -f "$VERSION"
+          git push origin "$VERSION" --force
+
       - name: Upload to GitHub Release
         run: |
           VERSION=${{ github.ref_name }}
@@ -152,9 +158,10 @@ jobs:
           VERSION=${{ github.ref_name }}
           RELEASE_URL="https://github.com/piumal96/NailDiseaseSDK-IOS/releases/download/$VERSION/NailDiseaseSDK.xcframework.zip"
 
-          # Replace the checksum, version, and download URL in Package.swift
+          # ✅ Ensure URL and version are updated correctly
           sed -i "s|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g" Package.swift
           sed -i "s|https://github.com/.*.zip|$RELEASE_URL|g" Package.swift
+          sed -i "s|v1.0.0|$VERSION|g" Package.swift
         shell: bash
 
       - name: Commit & Push Updated SPM Repository
