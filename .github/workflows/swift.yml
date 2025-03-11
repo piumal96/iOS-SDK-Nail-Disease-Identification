@@ -1,4 +1,3 @@
-
 name: CI Pipeline
 
 on:
@@ -84,29 +83,15 @@ jobs:
             -allow-internal-distribution \
             -output "$XCFRAMEWORK_PATH"
 
-          echo "📦 Creating ZIP archive..."
-          (cd "$BUILD_DIR" && zip -r "$(basename "$ZIP_FILE")" "$(basename "$XCFRAMEWORK_PATH")")
-
-          [[ -f "$ZIP_FILE" ]] || {
-            echo "❌ ERROR: ZIP file not created!"
-            exit 1
-          }
-
-          echo "✅ Build complete! Ready for upload: $ZIP_FILE"
-
+          echo "✅ Build complete!"
+          
         working-directory: ${{ github.workspace }}
 
-      - name: Compute Checksum
-        id: checksum
-        run: |
-          CHECKSUM=$(swift package compute-checksum build/NailDiseaseSDK.xcframework.zip)
-          echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
-
-      - name: Upload `.xcframework.zip` as Artifact  # ✅ Upload for Next Job
+      - name: Upload `.xcframework` as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
-          path: build/NailDiseaseSDK.xcframework.zip
+          path: build/NailDiseaseSDK.xcframework
 
   publish-spm:
     runs-on: ubuntu-latest
@@ -120,38 +105,44 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Download `.xcframework.zip` from Artifacts
+      - name: Download `.xcframework` from Artifacts
         uses: actions/download-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
           path: .
 
-      - name: Verify ZIP File Exists
+      - name: Verify `.xcframework` Exists
         run: |
-          if [ ! -f "NailDiseaseSDK.xcframework.zip" ]; then
-            echo "❌ ERROR: NailDiseaseSDK.xcframework.zip not found!"
+          if [ ! -d "NailDiseaseSDK.xcframework" ]; then
+            echo "❌ ERROR: NailDiseaseSDK.xcframework not found!"
             exit 1
           fi
 
-      - name: Unzip `.xcframework.zip` and Place in Root
-        run: |
-          rm -rf NailDiseaseSDK.xcframework  # ✅ Remove old framework
-          unzip NailDiseaseSDK.xcframework.zip -d .
-          rm -f NailDiseaseSDK.xcframework.zip  # ✅ Clean up ZIP file
-
-      - name: Ensure Git Tag Exists Before Release
+      - name: Ensure Git Tag Exists Before Release  # ✅ Fixes missing version in Xcode
         run: |
           VERSION=${{ github.ref_name }}
-          git tag -f "$VERSION"
-          git push origin "$VERSION" --force
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
+          git tag -f "$CLEAN_VERSION"
+          git push origin "$CLEAN_VERSION" --force
+
+      - name: Create GitHub Release
+        run: |
+          VERSION=${{ github.ref_name }}
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
+          gh release create "$CLEAN_VERSION" \
+            --title "NailDiseaseSDK Release $CLEAN_VERSION" \
+            --notes "Automated release of NailDiseaseSDK $CLEAN_VERSION"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
       - name: Update `Package.swift` to Point to Root `.xcframework`
         run: |
           VERSION=${{ github.ref_name }}
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
 
           # ✅ Ensure Package.swift correctly points to the extracted framework
           sed -i "s|path: \"./NailDiseaseSDK.xcframework\"|path: \"./NailDiseaseSDK.xcframework\"|g" Package.swift
-          sed -i "s|1.0.0|$VERSION|g" Package.swift
+          sed -i "s|1.0.0|$CLEAN_VERSION|g" Package.swift
         shell: bash
 
       - name: Commit & Push Updated SPM Repository
@@ -159,7 +150,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add NailDiseaseSDK.xcframework Package.swift
-          git commit -m "📦 Published $VERSION of NailDiseaseSDK"
+          git commit -m "📦 Published $CLEAN_VERSION of NailDiseaseSDK"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
