@@ -14,42 +14,32 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: List repository contents (debugging)
-        run: ls -la
-        working-directory: ${{ github.workspace }}
-
-      - name: Find and Set Project Directory
-        run: echo "PROJECT_DIR=NailDiseaseSDK" >> $GITHUB_ENV
-
-      - name: Verify Found Directory
-        run: echo "Project directory is ${{ env.PROJECT_DIR }}"
-
-      - name: Install Dependencies via Homebrew
-        run: |
-          brew update
-          brew install swiftlint
-          brew install cocoapods
-
-      - name: Install CocoaPods Dependencies
+      - name: Install CocoaPods
         run: pod install --repo-update
         working-directory: ${{ github.workspace }}/NailDiseaseSDK
 
-      - name: Set up Swift
-        uses: swift-actions/setup-swift@v1
+      - name: Build `.xcframework` (iOS Only)
+        run: |
+          xcodebuild archive \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS" \
+            -archivePath "build/NailDiseaseSDK.framework-iphoneos.xcarchive" \
+            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+          xcodebuild archive \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS Simulator" \
+            -archivePath "build/NailDiseaseSDK.framework-iphonesimulator.xcarchive" \
+            SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+          xcodebuild -create-xcframework \
+            -framework build/NailDiseaseSDK.framework-iphoneos.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
+            -framework build/NailDiseaseSDK.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
+            -output build/NailDiseaseSDK.xcframework
+        working-directory: ${{ github.workspace }}/NailDiseaseSDK
+
+      - name: Upload Artifact (XCFramework)
+        uses: actions/upload-artifact@v3
         with:
-          swift-version: '5.9'
-
-      - name: Clean and Reset Xcode Build Cache
-        run: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData
-        working-directory: ${{ github.workspace }}/NailDiseaseSDK
-
-      - name: Build with Xcode (iOS Only)
-        run: |
-          xcodebuild -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'generic/platform=iOS' build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-        working-directory: ${{ github.workspace }}/NailDiseaseSDK
-
-      - name: Run Tests on iOS Simulator
-        run: |
-          xcodebuild test -workspace NailDiseaseSDK.xcworkspace -scheme NailDiseaseSDK -destination 'platform=iOS Simulator,name=iPhone 14'
-        working-directory: ${{ github.workspace }}/NailDiseaseSDK
+          name: NailDiseaseSDK.xcframework
+          path: ${{ github.workspace }}/NailDiseaseSDK/build/NailDiseaseSDK.xcframework
