@@ -101,10 +101,10 @@ jobs:
           CHECKSUM=$(swift package compute-checksum build/NailDiseaseSDK.xcframework.zip)
           echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
 
-      - name: Upload `.xcframework.zip` as Artifact  # ✅ NEW
+      - name: Upload `.xcframework.zip` as Artifact  # ✅ Upload for Next Job
         uses: actions/upload-artifact@v4
         with:
-          name: NailDiseaseSDK.xcframework.zip
+          name: NailDiseaseSDK.xcframework
           path: build/NailDiseaseSDK.xcframework.zip
 
   publish-spm:
@@ -119,16 +119,16 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Download `.xcframework.zip` from Artifacts  # ✅ NEW
+      - name: Download `.xcframework.zip` from Artifacts  #  Download Before Use
         uses: actions/download-artifact@v4
         with:
-          name: NailDiseaseSDK.xcframework.zip
-          path: build/
+          name: NailDiseaseSDK.xcframework
+          path: Versions/
 
       - name: Verify ZIP File Exists
         run: |
-          if [ ! -f "build/NailDiseaseSDK.xcframework.zip" ]; then
-            echo "❌ ERROR: NailDiseaseSDK.xcframework.zip not found in build directory!"
+          if [ ! -f "Versions/NailDiseaseSDK.xcframework.zip" ]; then
+            echo "❌ ERROR: NailDiseaseSDK.xcframework.zip not found in Versions directory!"
             exit 1
           fi
 
@@ -136,7 +136,7 @@ jobs:
         run: |
           VERSION=${{ github.ref_name }}
           mkdir -p Versions/$VERSION
-          cp build/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
+          mv Versions/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
 
       - name: Update `Package.swift`
         run: |
