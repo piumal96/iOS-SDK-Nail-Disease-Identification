@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Products/Release-iphonesimulator/TensorFlowLiteSwift/TensorFlowLite.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/TensorFlowLiteSwift.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Products/Release-iphonesimulator/TensorFlowLiteSwift/TensorFlowLite.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "TensorFlowLite-Swift.h",
+      'external-contents': "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/TensorFlowLiteSwift.build/unextended-interface-header.h",
+    }]
+    }]
+}

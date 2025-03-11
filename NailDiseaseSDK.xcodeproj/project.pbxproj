@@ -137,12 +137,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2407B5472D5C5CE4005A330B /* Build configuration list for PBXNativeTarget "NailDiseaseSDK" */;
 			buildPhases = (
-				1B631F236E40E2BBE90CB21C /* [CP] Check Pods Manifest.lock */,
 				2407B52F2D5C5CE3005A330B /* Headers */,
 				2407B5302D5C5CE3005A330B /* Sources */,
 				2407B5312D5C5CE3005A330B /* Frameworks */,
 				2407B5322D5C5CE3005A330B /* Resources */,
-				E279F4F170D8F54ED6A266B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,28 +233,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B631F236E40E2BBE90CB21C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NailDiseaseSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		53DBD736E99C8F09EFF474C0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,23 +270,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E279F4F170D8F54ED6A266B0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

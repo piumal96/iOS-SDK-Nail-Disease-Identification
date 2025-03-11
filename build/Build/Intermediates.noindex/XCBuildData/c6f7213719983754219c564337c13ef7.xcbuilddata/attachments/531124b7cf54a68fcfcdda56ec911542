@@ -1,0 +1,20 @@
+{
+  "" : {
+    "const-values" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master.swiftconstvalues",
+    "dependencies" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master.d",
+    "diagnostics" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master.dia",
+    "emit-module-dependencies" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master-emit-module.dia",
+    "swift-dependencies" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/NailDiseaseSDK-master.swiftdeps"
+  },
+  "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/NailDiseaseSDK/Sources/Services/ImageProcessor.swift" : {
+    "index-unit-output-path" : "/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/ImageProcessor.o",
+    "llvm-bc" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/ImageProcessor.bc",
+    "object" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/ImageProcessor.o"
+  },
+  "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/NailDiseaseSDK/Sources/Services/TFLiteModelHandler.swift" : {
+    "index-unit-output-path" : "/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/TFLiteModelHandler.o",
+    "llvm-bc" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/TFLiteModelHandler.bc",
+    "object" : "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/build/Build/Intermediates.noindex/NailDiseaseSDK.build/Release-iphonesimulator/NailDiseaseSDK.build/Objects-normal/x86_64/TFLiteModelHandler.o"
+  }
+}
