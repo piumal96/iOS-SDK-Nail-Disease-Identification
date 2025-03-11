@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     tags:
-      - "v*.*.*"  # Trigger only on version tags (e.g., v1.0.0, v1.1.0)
+      - "v*.*.*"  
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -134,11 +134,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Checkout default branch (e.g., 'main')
-          git checkout main  # Change 'main' to 'master' if your repository uses 'master'
+          # Ensure we're on the main branch
+          git checkout main || git checkout -b main
+          git pull origin main  # Sync latest changes
 
           git add Package.swift
           git commit -m "📦 Updated Package.swift for release ${{ github.ref_name }}"
-          git push
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
