@@ -2,10 +2,11 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [main]
+    tags:
+      - "v*.*.*" 
   pull_request:
     branches: [main]
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch: 
 
 permissions:
   contents: write 
@@ -110,9 +111,9 @@ jobs:
       - name: Create GitHub Release & Upload `.xcframework`
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.0
-          name: "NailDiseaseSDK Release v1.0.0"
-          body: "Automated release of NailDiseaseSDK with SPM support"
+          tag_name: ${{ github.ref_name }}  # Use the pushed tag dynamically
+          name: "NailDiseaseSDK Release ${{ github.ref_name }}"
+          body: "Automated release of NailDiseaseSDK version ${{ github.ref_name }}"
           draft: false
           prerelease: false
           files: |
@@ -120,9 +121,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update `Package.swift` with New Checksum
+      - name: Update `Package.swift` with New Checksum & Version
         run: |
-          sed -i '' 's/YOUR_CHECKSUM_HERE/${{ env.CHECKSUM }}/g' Package.swift
+          sed -i '' 's|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g' Package.swift
+          sed -i '' 's|v1.0.0|${{ github.ref_name }}|g' Package.swift
         working-directory: ${{ github.workspace }}
 
       - name: Commit & Push Updated `Package.swift`
@@ -130,7 +132,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Package.swift
-          git commit -m "📦 Updated Package.swift with new checksum"
+          git commit -m "📦 Updated Package.swift for release ${{ github.ref_name }}"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
