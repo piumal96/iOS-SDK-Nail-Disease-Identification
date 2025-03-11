@@ -35,12 +35,22 @@ jobs:
           pod install --repo-update
         working-directory: ${{ github.workspace }}
 
+      - name: Run Unit Tests ✅  
+        run: |
+          echo "🚀 Running Unit Tests..."
+          xcodebuild test \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "platform=iOS Simulator,name=iPhone 14" \
+            -configuration Debug \
+            -derivedDataPath "${{ github.workspace }}/DerivedData"
+          echo "✅ Unit Tests Passed!"
+
       - name: Build `.xcframework`
         run: |
           echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
           BUILD_DIR="${{ github.workspace }}/build"
           XCFRAMEWORK_PATH="${BUILD_DIR}/NailDiseaseSDK.xcframework"
-          ZIP_FILE="${BUILD_DIR}/NailDiseaseSDK.xcframework.zip"
 
           echo "🧹 Cleaning previous artifacts..."
           rm -rf "$BUILD_DIR"
@@ -118,7 +128,13 @@ jobs:
             exit 1
           fi
 
-      - name: Ensure Git Tag Exists Before Release  # ✅ Fixes missing version in Xcode
+      - name: Fix Untracked Files Issue ⚠️  
+        run: |
+          git add -A  # ✅ Add all untracked files to commit
+          git status  # ✅ Show changes to verify
+          git diff --cached  # ✅ Display changes in staging
+
+      - name: Ensure Git Tag Exists Before Release  
         run: |
           VERSION=${{ github.ref_name }}
           CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
