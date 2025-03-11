@@ -6,7 +6,7 @@ target 'NailDiseaseSDK' do
   use_frameworks!
 
   # Pods for NailDiseaseSDK
-    pod 'TensorFlowLiteSwift'
+    pod 'TensorFlowLiteSwift', '~> 0.0.1-nightly'
 
   target 'NailDiseaseSDKTests' do
     # Pods for testing
