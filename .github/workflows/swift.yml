@@ -17,8 +17,15 @@ jobs:
       - name: Select Xcode 16.2
         run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
 
-      - name: Install CocoaPods
-        run: pod install --repo-update
+      - name: Verify Xcode Version
+        run: xcodebuild -version
+
+      - name: Clean and Reset Build Cache
+        run: |
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ~/Library/Caches/CocoaPods
+          pod deintegrate
+          pod install --repo-update
         working-directory: ${{ github.workspace }}
 
       - name: Build `.xcframework`
@@ -34,7 +41,7 @@ jobs:
           echo "🧹 Cleaning previous artifacts..."
           rm -rf "$BUILD_DIR"
 
-          # Build for iOS and iOS Simulator (using correct SDK names)
+          # Build for iOS and iOS Simulator (with fixes)
           echo "📱 Building for iOS devices..."
           xcodebuild build \
             -workspace NailDiseaseSDK.xcworkspace \
@@ -44,6 +51,7 @@ jobs:
             -sdk iphoneos \
             -derivedDataPath "$BUILD_DIR" \
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            OTHER_SWIFT_FLAGS="-Xfrontend -enable-library-evolution" \
             SKIP_INSTALL=NO
 
           echo "🖥️ Building for iOS Simulator..."
@@ -55,6 +63,7 @@ jobs:
             -sdk iphonesimulator \
             -derivedDataPath "$BUILD_DIR" \
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            OTHER_SWIFT_FLAGS="-Xfrontend -enable-library-evolution" \
             SKIP_INSTALL=NO
 
           # Locate built frameworks
