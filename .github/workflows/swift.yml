@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensure full commit history for switching branches
+          fetch-depth: 0  
 
       - name: Select Xcode 16.2
         run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
@@ -38,17 +38,13 @@ jobs:
       - name: Build `.xcframework`
         run: |
           echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
-
-          # Define paths
           BUILD_DIR="${{ github.workspace }}/build"
           XCFRAMEWORK_PATH="${BUILD_DIR}/NailDiseaseSDK.xcframework"
           ZIP_FILE="${BUILD_DIR}/NailDiseaseSDK.xcframework.zip"
 
-          # Clean previous builds
           echo "🧹 Cleaning previous artifacts..."
           rm -rf "$BUILD_DIR"
 
-          # Build for iOS devices
           echo "📱 Building for iOS devices..."
           xcodebuild build \
             -workspace NailDiseaseSDK.xcworkspace \
@@ -71,18 +67,15 @@ jobs:
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
             SKIP_INSTALL=NO
 
-          # Locate built frameworks
           IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
           SIMULATOR_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
 
-          # Verify framework paths
           [[ -d "$IOS_FRAMEWORK_PATH" && -d "$SIMULATOR_FRAMEWORK_PATH" ]] || {
             echo "❌ ERROR: Frameworks not found!"
             find "$BUILD_DIR" -name 'NailDiseaseSDK.framework'
             exit 1
           }
 
-          # Create `.xcframework`
           echo "🔗 Creating .xcframework..."
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
@@ -90,11 +83,9 @@ jobs:
             -allow-internal-distribution \
             -output "$XCFRAMEWORK_PATH"
 
-          # Zip `.xcframework`
           echo "📦 Creating ZIP archive..."
           (cd "$BUILD_DIR" && zip -r "$(basename "$ZIP_FILE")" "$(basename "$XCFRAMEWORK_PATH")")
 
-          # Confirm ZIP exists
           [[ -f "$ZIP_FILE" ]] || {
             echo "❌ ERROR: ZIP file not created!"
             exit 1
@@ -110,36 +101,36 @@ jobs:
           CHECKSUM=$(swift package compute-checksum build/NailDiseaseSDK.xcframework.zip)
           echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
 
-      - name: Create GitHub Release & Upload `.xcframework`
-        uses: softprops/action-gh-release@v1
+  publish-spm:
+    runs-on: ubuntu-latest
+    needs: build  # Runs after build is successful
+
+    steps:
+      - name: Checkout SPM Repository
+        uses: actions/checkout@v4
         with:
-          tag_name: ${{ github.ref_name }}  # Use the pushed tag dynamically
-          name: "NailDiseaseSDK Release ${{ github.ref_name }}"
-          body: "Automated release of NailDiseaseSDK version ${{ github.ref_name }}"
-          draft: false
-          prerelease: false
-          files: |
-            build/NailDiseaseSDK.xcframework.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repository: "piumal96/NailDiseaseSDK-SPM"
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          fetch-depth: 0
 
-      - name: Update `Package.swift` with New Checksum & Version
+      - name: Create Version Folder & Upload Framework
         run: |
-          sed -i '' 's|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g' Package.swift
-          sed -i '' 's|v1.0.0|${{ github.ref_name }}|g' Package.swift
-        working-directory: ${{ github.workspace }}
+          VERSION=${{ github.ref_name }}
+          mkdir -p Versions/$VERSION
+          mv ../build/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
 
-      - name: Commit & Push Updated `Package.swift`
+      - name: Update `Package.swift`
+        run: |
+          VERSION=${{ github.ref_name }}
+          sed -i "s|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g" Package.swift
+          sed -i "s|v1.0.0|$VERSION|g" Package.swift
+
+      - name: Commit & Push Updated SPM Repository
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Ensure we're on the main branch
-          git checkout main || git checkout -b main
-          git pull origin main  # Sync latest changes
-
-          git add Package.swift
-          git commit -m "📦 Updated Package.swift for release ${{ github.ref_name }}"
+          git add .
+          git commit -m "📦 Published $VERSION of NailDiseaseSDK"
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
