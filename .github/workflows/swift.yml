@@ -109,15 +109,15 @@ jobs:
       - name: Checkout SPM Repository
         uses: actions/checkout@v4
         with:
-          repository: "piumal96/NailDiseaseSDK-SPM"
+          repository: "piumal96/NailDiseaseSDK-IOS"  # ✅ Fixed repo name
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0
 
-      - name: Create Version Folder & Upload Framework
+      - name: Copy Built Framework to SPM Repo
         run: |
           VERSION=${{ github.ref_name }}
           mkdir -p Versions/$VERSION
-          mv ../build/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
+          cp $GITHUB_WORKSPACE/build/NailDiseaseSDK.xcframework.zip Versions/$VERSION/
 
       - name: Update `Package.swift`
         run: |
