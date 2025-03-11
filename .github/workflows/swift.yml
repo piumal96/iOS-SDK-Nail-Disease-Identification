@@ -26,14 +26,13 @@ jobs:
           echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
 
           # Define Build Paths
-          BUILD_DIR="build"
-          IOS_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
-          SIMULATOR_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
-          XCFRAMEWORK_OUTPUT="${BUILD_DIR}/NailDiseaseSDK.xcframework"
+          BUILD_DIR="${{ github.workspace }}/build"
+          XCFRAMEWORK_PATH="${BUILD_DIR}/NailDiseaseSDK.xcframework"
+          ZIP_FILE="${BUILD_DIR}/NailDiseaseSDK.xcframework.zip"
 
           # Clean previous builds
           echo "🧹 Cleaning previous build artifacts..."
-          rm -rf "${BUILD_DIR}" NailDiseaseSDK.xcframework
+          rm -rf "${BUILD_DIR}" "${XCFRAMEWORK_PATH}" "${ZIP_FILE}"
 
           # Build for iOS (Devices)
           echo "📱 Building for iOS devices..."
@@ -55,29 +54,41 @@ jobs:
             -sdk iphonesimulator \
             -derivedDataPath "${BUILD_DIR}"
 
-          # Verify framework paths before creating .xcframework
+          # Find correct framework paths
+          IOS_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
+          SIMULATOR_FRAMEWORK_PATH="${BUILD_DIR}/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
+
+          # Verify paths before proceeding
           if [[ ! -d "$IOS_FRAMEWORK_PATH" || ! -d "$SIMULATOR_FRAMEWORK_PATH" ]]; then
               echo "❌ ERROR: Frameworks not found in expected locations!"
-              echo "Check build output with: find ${BUILD_DIR} -name 'NailDiseaseSDK.framework'"
+              echo "Check your build output using: find ${BUILD_DIR} -name 'NailDiseaseSDK.framework'"
               exit 1
           fi
 
-          # Create .xcframework
+          # Create .xcframework in the build directory
           echo "🔗 Creating .xcframework..."
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
             -framework "$SIMULATOR_FRAMEWORK_PATH" \
-            -output "$XCFRAMEWORK_OUTPUT"
+            -output "$XCFRAMEWORK_PATH"
 
           # Verify the exported .xcframework
           echo "📂 Verifying .xcframework structure..."
-          ls -R "$XCFRAMEWORK_OUTPUT"
+          ls -R "$XCFRAMEWORK_PATH"
 
-          # Zip the .xcframework for easy distribution
+          # Zip the .xcframework in the correct directory
           echo "📦 Zipping the .xcframework..."
-          zip -r NailDiseaseSDK.xcframework.zip "$XCFRAMEWORK_OUTPUT"
+          cd "$BUILD_DIR"
+          zip -r "NailDiseaseSDK.xcframework.zip" "NailDiseaseSDK.xcframework"
+          cd ..
 
-          echo "✅ Build complete! Your .xcframework is ready: NailDiseaseSDK.xcframework.zip"
+          # Verify ZIP file exists before upload
+          if [[ ! -f "$ZIP_FILE" ]]; then
+              echo "❌ ERROR: ZIP file not found!"
+              exit 1
+          fi
+
+          echo "✅ Build complete! Your .xcframework is ready: $ZIP_FILE"
 
         working-directory: ${{ github.workspace }}
 
