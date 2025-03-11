@@ -17,10 +17,6 @@ jobs:
       - name: Select Xcode 16.2
         run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
 
-      - name: Debug - List Repository Files
-        run: ls -R
-        working-directory: ${{ github.workspace }}
-
       - name: Install CocoaPods
         run: pod install --repo-update
         working-directory: ${{ github.workspace }}
