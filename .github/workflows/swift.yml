@@ -147,11 +147,15 @@ jobs:
           echo "Computed Checksum: $CHECKSUM"
           echo "CHECKSUM=$CHECKSUM" >> $GITHUB_ENV
 
-      - name: Update `Package.swift`
+      - name: Update `Package.swift` with New Release URL
         run: |
           VERSION=${{ github.ref_name }}
+          RELEASE_URL="https://github.com/piumal96/NailDiseaseSDK-IOS/releases/download/$VERSION/NailDiseaseSDK.xcframework.zip"
+
+          # Replace the checksum, version, and download URL in Package.swift
           sed -i "s|YOUR_CHECKSUM_HERE|${{ env.CHECKSUM }}|g" Package.swift
-          sed -i "s|v1.0.0|$VERSION|g" Package.swift
+          sed -i "s|https://github.com/.*.zip|$RELEASE_URL|g" Package.swift
+        shell: bash
 
       - name: Commit & Push Updated SPM Repository
         run: |
