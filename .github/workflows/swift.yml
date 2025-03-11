@@ -34,19 +34,28 @@ jobs:
           echo "🧹 Cleaning previous artifacts..."
           rm -rf "$BUILD_DIR"
 
-          # Build for iOS (Device & Simulator)
-          for PLATFORM in "iOS" "iOS Simulator"; do
-            echo "📱 Building for $PLATFORM..."
-            xcodebuild build \
-              -workspace NailDiseaseSDK.xcworkspace \
-              -scheme NailDiseaseSDK \
-              -destination "generic/platform=$PLATFORM" \
-              -configuration Release \
-              -sdk $(echo "$PLATFORM" | awk '{print tolower($0)}') \
-              -derivedDataPath "$BUILD_DIR" \
-              BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-              SKIP_INSTALL=NO
-          done
+          # Build for iOS and iOS Simulator (using correct SDK names)
+          echo "📱 Building for iOS devices..."
+          xcodebuild build \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS" \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath "$BUILD_DIR" \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO
+
+          echo "🖥️ Building for iOS Simulator..."
+          xcodebuild build \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS Simulator" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$BUILD_DIR" \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO
 
           # Locate built frameworks
           IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
