@@ -20,7 +20,7 @@ jobs:
 
       - name: Install CocoaPods
         run: pod install --repo-update
-        working-directory: ${{ github.workspace }}/NailDiseaseSDK
+        working-directory: ${{ github.workspace }}
 
       - name: Build `.xcframework` (iOS Only)
         run: |
@@ -42,10 +42,10 @@ jobs:
             -framework build/NailDiseaseSDK.framework-iphoneos.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
             -framework build/NailDiseaseSDK.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
             -output build/NailDiseaseSDK.xcframework
-        working-directory: ${{ github.workspace }}/NailDiseaseSDK
+        working-directory: ${{ github.workspace }}
 
       - name: Upload Artifact (XCFramework)
         uses: actions/upload-artifact@v4
         with:
           name: NailDiseaseSDK.xcframework
-          path: ${{ github.workspace }}/NailDiseaseSDK/build/NailDiseaseSDK.xcframework
+          path: ${{ github.workspace }}/build/NailDiseaseSDK.xcframework
