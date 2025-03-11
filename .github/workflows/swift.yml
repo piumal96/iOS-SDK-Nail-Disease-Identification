@@ -17,16 +17,13 @@ jobs:
       - name: Select Xcode 16.2
         run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
 
-      - name: Debug - List Repository Files
-        run: ls -R
-        working-directory: ${{ github.workspace }}
-
       - name: Install CocoaPods
         run: pod install --repo-update
         working-directory: ${{ github.workspace }}
 
       - name: Build `.xcframework` (iOS Only)
         run: |
+          # Create archives for both iOS Device and Simulator
           xcodebuild archive \
             -workspace NailDiseaseSDK.xcworkspace \
             -scheme NailDiseaseSDK \
@@ -41,14 +38,26 @@ jobs:
             -archivePath "build/NailDiseaseSDK.framework-iphonesimulator.xcarchive" \
             SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
+          # Create the .xcframework
           xcodebuild -create-xcframework \
             -framework build/NailDiseaseSDK.framework-iphoneos.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
             -framework build/NailDiseaseSDK.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/NailDiseaseSDK.framework \
             -output build/NailDiseaseSDK.xcframework
+
         working-directory: ${{ github.workspace }}
 
-      - name: Upload Artifact (XCFramework)
+      - name: Verify .xcframework Output
+        run: ls -R build/
+        working-directory: ${{ github.workspace }}
+
+      - name: Zip the `.xcframework` for Distribution
+        run: |
+          cd build
+          zip -r NailDiseaseSDK.xcframework.zip NailDiseaseSDK.xcframework
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload `.xcframework` as an Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: NailDiseaseSDK.xcframework
-          path: ${{ github.workspace }}/build/NailDiseaseSDK.xcframework
+          name: NailDiseaseSDK.xcframework.zip
+          path: ${{ github.workspace }}/build/NailDiseaseSDK.xcframework.zip
