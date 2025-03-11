@@ -82,15 +82,10 @@ jobs:
           xcodebuild -create-xcframework \
             -framework "$IOS_FRAMEWORK_PATH" \
             -framework "$SIMULATOR_FRAMEWORK_PATH" \
+            -allow-internal-distribution\
             -output "$XCFRAMEWORK_PATH"
 
-          # Verify `.swiftinterface` exists
-          echo "🔍 Verifying Swift interface files..."
-          SWIFT_INTERFACE_FILES=$(find "$XCFRAMEWORK_PATH" -name "*.swiftinterface" | wc -l)
-          if [[ $SWIFT_INTERFACE_FILES -eq 0 ]]; then
-              echo "❌ ERROR: Missing Swift interface files!"
-              exit 1
-          fi
+
 
           # Zip `.xcframework`
           echo "📦 Creating ZIP archive..."
