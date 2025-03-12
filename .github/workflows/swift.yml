@@ -41,14 +41,15 @@ jobs:
           if xcodebuild -list -json | grep -q '"test"'; then
             xcodebuild test \
               -workspace NailDiseaseSDK.xcworkspace \
-              -scheme NailDiseaseSDKTests \
+              -scheme NailDiseaseSDKTests \   # Ensure the scheme is correct
               -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
               -configuration Debug \
-              -derivedDataPath "${{ github.workspace }}/DerivedData"
+              -derivedDataPath "${{ github.workspace }}/DerivedData" \
               -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
             echo "✅ Unit Tests Passed!"
           else
-            echo "⚠️ No test target found, skipping tests."
+            echo "❌ ERROR: Test scheme not found! Check if 'NailDiseaseSDKTests' exists in Xcode."
+            exit 1
           fi
 
       - name: Build `.xcframework`
