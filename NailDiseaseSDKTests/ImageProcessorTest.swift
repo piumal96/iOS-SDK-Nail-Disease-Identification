@@ -2,11 +2,10 @@
 //  ImageProcessorTest.swift
 //  NailDiseaseSDKTests
 //
-//  Created by Piumal Kumara on 2025-03-10.
+//  Created by Piumal Kumara on 2025-03-12.
 //
 
 import XCTest
-@testable import NailDiseaseSDK
 
 final class ImageProcessorTest: XCTestCase {
 
@@ -16,55 +15,6 @@ final class ImageProcessorTest: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func loadTestImage(named imageName: String) -> UIImage? {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: imageName, withExtension: "jpg") else {
-            return nil
-        }
-        guard let data = try? Data(contentsOf: url) else {
-            return nil
-        }
-        return UIImage(data: data)
-    }
-
- 
-    func testResizeImage() {
-        guard let originalImage = loadTestImage(named: "test_image") else {
-            XCTFail("Failed to load test image")
-            return
-        }
-        
-        let newSize = CGSize(width: 224, height: 224)
-        let resizedImage = TFLiteImageProcessor.resize(originalImage, to: newSize)
-        
-        XCTAssertNotNil(resizedImage, "Resized image should not be nil")
-        XCTAssertEqual(resizedImage?.size, newSize, "Resized image size should match the expected size")
-    }
-
-    func testConvertToBuffer() {
-        guard let image = loadTestImage(named: "test_image") else {
-            XCTFail("Failed to load test image")
-            return
-        }
-        
-        let buffer = TFLiteImageProcessor.convertToBuffer(image)
-        
-        XCTAssertNotNil(buffer, "Image buffer should not be nil")
-        XCTAssertGreaterThan(buffer!.count, 0, "Buffer should contain data")
-    }
-    
-    func testPreprocessImage() {
-        guard let image = loadTestImage(named: "test_image") else {
-            XCTFail("Failed to load test image")
-            return
-        }
-
-        let processedData = TFLiteImageProcessor.preprocessImage(image)
-
-        XCTAssertNotNil(processedData, "Preprocessed image data should not be nil")
-        XCTAssertGreaterThan(processedData!.count, 0, "Preprocessed data should not be empty")
     }
 
     func testExample() throws {

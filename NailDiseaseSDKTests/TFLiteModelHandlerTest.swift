@@ -1,8 +1,8 @@
 //
 //  TFLiteModelHandlerTest.swift
-//  NailDiseaseSDKTests
+//  NailDiseaseSDK
 //
-//  Created by Piumal Kumara on 2025-03-10.
+//  Created by Piumal Kumara on 2025-03-12.
 //
 
 import XCTest
