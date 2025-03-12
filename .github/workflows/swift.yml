@@ -35,20 +35,24 @@ jobs:
           pod install --repo-update
         working-directory: ${{ github.workspace }}
 
+      - name: Install CocoaPods Dependencies
+        run: pod install --repo-update
+        working-directory: ${{ github.workspace }}
+
       - name: Run Unit Tests ✅  
         run: |
           echo "🚀 Running Unit Tests..."
-          if xcodebuild -list -json | grep -q '"test"'; then
+          if xcodebuild -list -json | grep -q '"NailDiseaseSDKTests"'; then
             xcodebuild test \
-              -workspace NailDiseaseSDK.xcworkspace \
-              -scheme NailDiseaseSDKTests \   # Ensure the scheme is correct
+              -workspace NailDiseaseSDK.xcworkspace \  
+              -scheme NailDiseaseSDKTests \
               -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
               -configuration Debug \
               -derivedDataPath "${{ github.workspace }}/DerivedData" \
               -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
             echo "✅ Unit Tests Passed!"
           else
-            echo "❌ ERROR: Test scheme not found! Check if 'NailDiseaseSDKTests' exists in Xcode."
+            echo "❌ ERROR: Test scheme not found! Ensure 'NailDiseaseSDKTests' exists in Xcode."
             exit 1
           fi
 
