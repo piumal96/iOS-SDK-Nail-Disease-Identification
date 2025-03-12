@@ -30,8 +30,9 @@ jobs:
       - name: Clean and Reset Build Cache
         run: |
           rm -rf ~/Library/Developer/Xcode/DerivedData
-          # rm -rf ~/Library/Caches/CocoaPods
-          # pod deintegrate
+          rm -rf ~/Library/Caches/CocoaPods
+          rm -rf ~/Library/MobileDevice/Provisioning\ Profiles/*
+          pod deintegrate
           pod install --repo-update
         working-directory: ${{ github.workspace }}
 
