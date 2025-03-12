@@ -54,26 +54,33 @@ public class TFLiteModelHandler: ObservableObject {
         guard let interpreter = interpreter else {
             print("Interpreter is not initialized.")
             return
-            }
+        }
+        
         do {
             let inputTensor = try interpreter.input(at: 0)
             print("Model expects input size: \(inputTensor.shape.dimensions)")
+            
             guard inputData.count == inputTensor.data.count else {
                 print("Error: Input data size \(inputData.count) does not match model input size \(inputTensor.data.count)")
                 return
             }
 
             try interpreter.copy(inputData, toInputAt: 0)
-
             try interpreter.invoke()
 
             let outputTensor = try interpreter.output(at: 0)
-            inferenceResult = outputTensor.data.toArray(type: Float.self)
-            print("Inference Result: \(inferenceResult)")
+
+            // ✅ Fix: Ensure UI updates are done on the main thread
+            DispatchQueue.main.async {
+                self.inferenceResult = outputTensor.data.toArray(type: Float.self)
+                print("Inference Result: \(self.inferenceResult)")
+            }
+
         } catch {
             print("Error during inference: \(error.localizedDescription)")
         }
     }
+
     
     /// Returns the predicted label based on inference results
     public func getInferenceLabel() -> String {
