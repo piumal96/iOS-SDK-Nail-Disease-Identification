@@ -21,25 +21,25 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		09AE6C6DFFD622DD7ACCB46F8CF23E2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		10EC0A1271DF1FC53FF0E3063AF35CBB /* Tensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DD2A8DC859A8ADB5ADFB27B316C29 /* Tensor.swift */; };
 		17ED2FE3B32EEF7F6F59360DCDD09E28 /* TensorFlowLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F995B7CA084121A141BA039A3926220 /* TensorFlowLite.swift */; };
 		2CAE45698E0CE80871AE38B589F5A711 /* InterpreterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEC82FDD7614FC4755692D94E73596 /* InterpreterError.swift */; };
 		3062F598E3813B72B7EFA21CC9BF1F8F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C9D5843B01FB6ADEAB8AF281279DBE35 /* PrivacyInfo.xcprivacy */; };
 		4A011984D71034A9F1558DB8B087F771 /* QuantizationParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C8B5646639FAA167DFCD316CF55F7 /* QuantizationParameters.swift */; };
-		5451E847CD62CD36F3B9D4B2E867EA83 /* Pods-NailDiseaseSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F3469EEC3ABE3F4690F6CF60D8B0EF /* Pods-NailDiseaseSDK-dummy.m */; };
+		5451E847CD62CD36F3B9D4B2E867EA83 /* Pods-NailDiseaseSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BADCE917DF46313BA6FF81536065B /* Pods-NailDiseaseSDK-dummy.m */; };
 		57408889EB6DFE48C799B864CCCADBE9 /* SignatureRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED09DC3D1226AC3147CE7E4D2563CC /* SignatureRunner.swift */; };
 		6AE3FEE84AB869B3BEE832CE18132EDD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC02A70FFE8F4DF76D8EF962074CFD /* Model.swift */; };
-		74398CD222B4D1C122154C4846C88FE9 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6144FA5FDAEDFA9E6435EFAD035D589 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */; };
 		7B43BD6B8758EA3D2176EB598691A25C /* TensorFlowLiteSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 584E1C7D5B533FBC59C0C0FB0DE7CF03 /* TensorFlowLiteSwift-dummy.m */; };
-		90393ED16CF4352460CB218FC09293A9 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 32AC33468D0FEE021E292AAD9DD789BB /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96E59D757FC76740D01495CACC4A8572 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C00B3B581A636CEF0A45EEC379E03 /* Delegate.swift */; };
 		972A9788F6C963DEC5986F16DD5B67DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		997CD6416A6B12A635614BE8C4BFB5EC /* TensorFlowLiteSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 496989AFF7F19B10EAAAAAA90FF29789 /* TensorFlowLiteSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A9AC2C2A05D9FC27B9CA0555BD8119A /* Pods-NailDiseaseSDKTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D87926466106AB2E2E05BA80BE227E45 /* Pods-NailDiseaseSDKTests-dummy.m */; };
 		A6A25EBD01C329AF43AD4BB041E49455 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
-		CE66BA3D5FAAAAFF895F4358C32134C5 /* Pods-NailDiseaseSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6DCA26A78CF0367AFB1BDAC5F6043AB /* Pods-NailDiseaseSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE66BA3D5FAAAAFF895F4358C32134C5 /* Pods-NailDiseaseSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4106470631EA85603840A3FE157448AE /* Pods-NailDiseaseSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF0721114926A904F264A567532133A9 /* SignatureRunnerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE612B45C0BF063C59B553FC88BC7A9B /* SignatureRunnerError.swift */; };
-		EEE459A537CCEB5A107E041C6EBE8A44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		F0FD42BDFFAF4EE493C5483BB1D73426 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9101D5F600ECAC81DA1F235FCE6EB0C1 /* PrivacyInfo.xcprivacy */; };
+		F6AC0A2B1008A7C925A5B2AB7175D055 /* Pods-NailDiseaseSDKTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D5341341C09C0E6B9B20CDE647CDEE /* Pods-NailDiseaseSDKTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F85321E6B8C6AE9F3439E15DB7FFAEBF /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B697DBED104207E7C1F1F32B69C4F1B /* Interpreter.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,13 +65,6 @@
 			remoteGlobalIDString = 10418167F619D6DA72BADAD10F9EC02B;
 			remoteInfo = TensorFlowLiteSwift;
 		};
-		82747A668229CA096F97B7FA0FFBC66D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AC559E53E13B6FBEF4F5CC310A73AFE6;
-			remoteInfo = TensorFlowLiteC;
-		};
 		A7584C30376D009AFE6CD44E48385719 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -86,65 +79,64 @@
 			remoteGlobalIDString = E84A5C2B777F1A7DFA141FF65E7EF5F8;
 			remoteInfo = "TensorFlowLiteC-TensorFlowLiteC";
 		};
-		D8D83584BF9A1361B4B5AF6AA1BC924B /* PBXContainerItemProxy */ = {
+		D7DA5BC85B3E1E071CBB5359FAE85616 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10418167F619D6DA72BADAD10F9EC02B;
-			remoteInfo = TensorFlowLiteSwift;
+			remoteGlobalIDString = 6C30ABDEEDEC85D076ED7EE059FA46A1;
+			remoteInfo = "Pods-NailDiseaseSDK";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests"; path = Pods_NailDiseaseSDK_NailDiseaseSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F1D8054D37275CD7C8DC1272FD76A6E /* Pods-NailDiseaseSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.release.xcconfig"; sourceTree = "<group>"; };
-		130DF15F284F51D5ADC1D071C202551F /* Pods-NailDiseaseSDK-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NailDiseaseSDK-resources.sh"; sourceTree = "<group>"; };
+		0DD74F0B8BD9F4107440C7AD67185A9F /* Pods-NailDiseaseSDKTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDKTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NailDiseaseSDK"; path = Pods_NailDiseaseSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EEC82FDD7614FC4755692D94E73596 /* InterpreterError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InterpreterError.swift; path = tensorflow/lite/swift/Sources/InterpreterError.swift; sourceTree = "<group>"; };
 		18DF2EA37548E71850E3C5EAFA45944B /* TensorFlowLiteC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteC.release.xcconfig; sourceTree = "<group>"; };
 		1D5601775997FD3F96D4BBB895A282FB /* TensorFlowLiteSwift-TensorFlowLite */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "TensorFlowLiteSwift-TensorFlowLite"; path = TensorFlowLite.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D819161215A1D34E86D8A3A48739C69 /* Pods-NailDiseaseSDKTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDKTests-Info.plist"; sourceTree = "<group>"; };
 		20ED09DC3D1226AC3147CE7E4D2563CC /* SignatureRunner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignatureRunner.swift; path = tensorflow/lite/swift/Sources/SignatureRunner.swift; sourceTree = "<group>"; };
-		32AC33468D0FEE021E292AAD9DD789BB /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h"; sourceTree = "<group>"; };
+		21A57FE1FDD7B198E9DD8FA6B73D1561 /* Pods-NailDiseaseSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDK.modulemap"; sourceTree = "<group>"; };
+		2661CBE018CEDD2C92B3BE8CE68146AF /* Pods-NailDiseaseSDKTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDKTests.modulemap"; sourceTree = "<group>"; };
+		2E5466335BC6311A74C3AAB42883BD52 /* Pods-NailDiseaseSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		342C8B5646639FAA167DFCD316CF55F7 /* QuantizationParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuantizationParameters.swift; path = tensorflow/lite/swift/Sources/QuantizationParameters.swift; sourceTree = "<group>"; };
+		35F33E77F83335C5ED901DC3BB34A06E /* Pods-NailDiseaseSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-Info.plist"; sourceTree = "<group>"; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3EBC02A70FFE8F4DF76D8EF962074CFD /* Model.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Model.swift; path = tensorflow/lite/swift/Sources/Model.swift; sourceTree = "<group>"; };
 		3F995B7CA084121A141BA039A3926220 /* TensorFlowLite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TensorFlowLite.swift; path = tensorflow/lite/swift/Sources/TensorFlowLite.swift; sourceTree = "<group>"; };
+		4106470631EA85603840A3FE157448AE /* Pods-NailDiseaseSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDK-umbrella.h"; sourceTree = "<group>"; };
 		496989AFF7F19B10EAAAAAA90FF29789 /* TensorFlowLiteSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TensorFlowLiteSwift-umbrella.h"; sourceTree = "<group>"; };
 		4B697DBED104207E7C1F1F32B69C4F1B /* Interpreter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interpreter.swift; path = tensorflow/lite/swift/Sources/Interpreter.swift; sourceTree = "<group>"; };
+		5298BFC75BF797AC31A8004F690FBE46 /* Pods-NailDiseaseSDKTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NailDiseaseSDKTests"; path = Pods_NailDiseaseSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56D0149A3FABE840F3A0F86E7EFB3169 /* Pods-NailDiseaseSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		584E1C7D5B533FBC59C0C0FB0DE7CF03 /* TensorFlowLiteSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TensorFlowLiteSwift-dummy.m"; sourceTree = "<group>"; };
-		596A76411EB49B56608B8502D89C0C12 /* Pods-NailDiseaseSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE57921A816F0582206BDF4E4B4F7D8 /* TensorFlowLiteC.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = TensorFlowLiteC.xcframework; path = Frameworks/TensorFlowLiteC.xcframework; sourceTree = "<group>"; };
-		66777D6F638E9516E577C9B300668E4A /* Pods-NailDiseaseSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-acknowledgements.plist"; sourceTree = "<group>"; };
-		7084500B1FA2241AACBC4A2A70AF1FBD /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		628209FD776D57858936793E203B38ED /* Pods-NailDiseaseSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		72C1B8988D7889F63B44C092B3D73434 /* Pods-NailDiseaseSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
+		73D5341341C09C0E6B9B20CDE647CDEE /* Pods-NailDiseaseSDKTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDKTests-umbrella.h"; sourceTree = "<group>"; };
 		7F80CAA02A9354FB78E71CA454AE58F2 /* ResourceBundle-TensorFlowLite-TensorFlowLiteSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TensorFlowLite-TensorFlowLiteSwift-Info.plist"; sourceTree = "<group>"; };
-		7FBB0E94D852E5C1E0E41378DF3D9448 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-resources.sh"; sourceTree = "<group>"; };
-		80C2730C86B5A383B7977B17F5274C1B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist"; sourceTree = "<group>"; };
 		842FF3426F1C9417A47FCBE29E14E9CB /* TensorFlowLiteC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteC.debug.xcconfig; sourceTree = "<group>"; };
 		899DD2A8DC859A8ADB5ADFB27B316C29 /* Tensor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tensor.swift; path = tensorflow/lite/swift/Sources/Tensor.swift; sourceTree = "<group>"; };
 		8AD43D2189CFB1B64F02DAE72625D4BE /* TensorFlowLiteSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteSwift.debug.xcconfig; sourceTree = "<group>"; };
 		8B38950CCD485B31C8EC393D2978AC40 /* TensorFlowLiteSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TensorFlowLiteSwift.release.xcconfig; sourceTree = "<group>"; };
+		90BECBB17F60F3697FF087D365754DEA /* Pods-NailDiseaseSDKTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDKTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9101D5F600ECAC81DA1F235FCE6EB0C1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Frameworks/TensorFlowLiteC.xcframework/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		98483FA75394879479291B6C2AC47EB1 /* TensorFlowLiteC-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "TensorFlowLiteC-xcframeworks.sh"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AF0458AB6A3AD0C4C34BD783CC633B86 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B4013743574F3C232D9CD29C5BB4A7FE /* Pods-NailDiseaseSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDK.modulemap"; sourceTree = "<group>"; };
-		B6144FA5FDAEDFA9E6435EFAD035D589 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m"; sourceTree = "<group>"; };
-		B6DCA26A78CF0367AFB1BDAC5F6043AB /* Pods-NailDiseaseSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NailDiseaseSDK-umbrella.h"; sourceTree = "<group>"; };
-		B8E868D11D9B3A1E43E8465A2F568F9C /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE612B45C0BF063C59B553FC88BC7A9B /* SignatureRunnerError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignatureRunnerError.swift; path = tensorflow/lite/swift/Sources/SignatureRunnerError.swift; sourceTree = "<group>"; };
-		C0F6B7F3046CFB909F4383E8BF3FCF22 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C2F3469EEC3ABE3F4690F6CF60D8B0EF /* Pods-NailDiseaseSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDK-dummy.m"; sourceTree = "<group>"; };
+		C70C8C9AA6A2D712A73C9F7C45951CFF /* Pods-NailDiseaseSDK-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NailDiseaseSDK-resources.sh"; sourceTree = "<group>"; };
 		C9D5843B01FB6ADEAB8AF281279DBE35 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = tensorflow/lite/swift/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		CDC6FF5954AF00B6B24B0F92BE022129 /* Pods-NailDiseaseSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NailDiseaseSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CEA5F66ADCFB2495E5E02CFF356C6B56 /* TensorFlowLiteSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TensorFlowLiteSwift.modulemap; sourceTree = "<group>"; };
-		CF0D0E420895364330A73B9EF0127107 /* Pods-NailDiseaseSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-Info.plist"; sourceTree = "<group>"; };
-		D4428BC9F1127944B426E148E7E3EC3D /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap"; sourceTree = "<group>"; };
+		D48D3213260A4E754EDE0064584AE828 /* Pods-NailDiseaseSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NailDiseaseSDK-acknowledgements.plist"; sourceTree = "<group>"; };
+		D87926466106AB2E2E05BA80BE227E45 /* Pods-NailDiseaseSDKTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDKTests-dummy.m"; sourceTree = "<group>"; };
 		DB94E918E397569C09031A5C012AD77F /* ResourceBundle-TensorFlowLiteC-TensorFlowLiteC-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TensorFlowLiteC-TensorFlowLiteC-Info.plist"; sourceTree = "<group>"; };
 		DC2C913A359F374212E711F51581D753 /* TensorFlowLiteSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TensorFlowLiteSwift-Info.plist"; sourceTree = "<group>"; };
 		E0B71FE13AA6B05010059EB4B8D87919 /* TensorFlowLiteSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TensorFlowLiteSwift; path = TensorFlowLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A28AC56751DE08A1BCCE41324C0B2B /* TensorFlowLiteSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TensorFlowLiteSwift-prefix.pch"; sourceTree = "<group>"; };
 		E64C00B3B581A636CEF0A45EEC379E03 /* Delegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = tensorflow/lite/swift/Sources/Delegate.swift; sourceTree = "<group>"; };
 		F6CA8BFC88290AB33297A7C778E05B12 /* TensorFlowLiteC-TensorFlowLiteC */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "TensorFlowLiteC-TensorFlowLiteC"; path = TensorFlowLiteC.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB86E9B4509133F90095F1729B1411D1 /* Pods-NailDiseaseSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NailDiseaseSDK.release.xcconfig"; sourceTree = "<group>"; };
+		FD3BADCE917DF46313BA6FF81536065B /* Pods-NailDiseaseSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NailDiseaseSDK-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +148,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB8F2872591A1176805116386378A3AA /* Frameworks */ = {
+		8D819FE9D5CDFB0E67075D036780389C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE459A537CCEB5A107E041C6EBE8A44 /* Foundation.framework in Frameworks */,
+				09AE6C6DFFD622DD7ACCB46F8CF23E2A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,33 +197,20 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		2C48627634C4BA6004A54F4B62259A63 /* Pods-NailDiseaseSDK */ = {
+		608BD243E1FF485BD18602ECBD2B3323 /* Pods-NailDiseaseSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				B4013743574F3C232D9CD29C5BB4A7FE /* Pods-NailDiseaseSDK.modulemap */,
-				CDC6FF5954AF00B6B24B0F92BE022129 /* Pods-NailDiseaseSDK-acknowledgements.markdown */,
-				66777D6F638E9516E577C9B300668E4A /* Pods-NailDiseaseSDK-acknowledgements.plist */,
-				C2F3469EEC3ABE3F4690F6CF60D8B0EF /* Pods-NailDiseaseSDK-dummy.m */,
-				CF0D0E420895364330A73B9EF0127107 /* Pods-NailDiseaseSDK-Info.plist */,
-				130DF15F284F51D5ADC1D071C202551F /* Pods-NailDiseaseSDK-resources.sh */,
-				B6DCA26A78CF0367AFB1BDAC5F6043AB /* Pods-NailDiseaseSDK-umbrella.h */,
-				596A76411EB49B56608B8502D89C0C12 /* Pods-NailDiseaseSDK.debug.xcconfig */,
-				0F1D8054D37275CD7C8DC1272FD76A6E /* Pods-NailDiseaseSDK.release.xcconfig */,
+				2661CBE018CEDD2C92B3BE8CE68146AF /* Pods-NailDiseaseSDKTests.modulemap */,
+				0DD74F0B8BD9F4107440C7AD67185A9F /* Pods-NailDiseaseSDKTests-acknowledgements.markdown */,
+				90BECBB17F60F3697FF087D365754DEA /* Pods-NailDiseaseSDKTests-acknowledgements.plist */,
+				D87926466106AB2E2E05BA80BE227E45 /* Pods-NailDiseaseSDKTests-dummy.m */,
+				1D819161215A1D34E86D8A3A48739C69 /* Pods-NailDiseaseSDKTests-Info.plist */,
+				73D5341341C09C0E6B9B20CDE647CDEE /* Pods-NailDiseaseSDKTests-umbrella.h */,
+				56D0149A3FABE840F3A0F86E7EFB3169 /* Pods-NailDiseaseSDKTests.debug.xcconfig */,
+				628209FD776D57858936793E203B38ED /* Pods-NailDiseaseSDKTests.release.xcconfig */,
 			);
-			name = "Pods-NailDiseaseSDK";
-			path = "Target Support Files/Pods-NailDiseaseSDK";
-			sourceTree = "<group>";
-		};
-		31604A6E04E57BB71F466EBE8985D95B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */,
-				09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
-				F6CA8BFC88290AB33297A7C778E05B12 /* TensorFlowLiteC-TensorFlowLiteC */,
-				E0B71FE13AA6B05010059EB4B8D87919 /* TensorFlowLiteSwift */,
-				1D5601775997FD3F96D4BBB895A282FB /* TensorFlowLiteSwift-TensorFlowLite */,
-			);
-			name = Products;
+			name = "Pods-NailDiseaseSDKTests";
+			path = "Target Support Files/Pods-NailDiseaseSDKTests";
 			sourceTree = "<group>";
 		};
 		60CF3642CC7F5290B4F7F88E2C5DF91D /* Privacy */ = {
@@ -240,23 +219,6 @@
 				729B1AFEE326A47C6DC91028963B6C74 /* Resources */,
 			);
 			name = Privacy;
-			sourceTree = "<group>";
-		};
-		61DBFA2B958BDEE821FFFE658F873308 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {
-			isa = PBXGroup;
-			children = (
-				D4428BC9F1127944B426E148E7E3EC3D /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap */,
-				AF0458AB6A3AD0C4C34BD783CC633B86 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.markdown */,
-				C0F6B7F3046CFB909F4383E8BF3FCF22 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-acknowledgements.plist */,
-				B6144FA5FDAEDFA9E6435EFAD035D589 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m */,
-				80C2730C86B5A383B7977B17F5274C1B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist */,
-				7FBB0E94D852E5C1E0E41378DF3D9448 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-resources.sh */,
-				32AC33468D0FEE021E292AAD9DD789BB /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h */,
-				B8E868D11D9B3A1E43E8465A2F568F9C /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */,
-				7084500B1FA2241AACBC4A2A70AF1FBD /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */,
-			);
-			name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests";
-			path = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests";
 			sourceTree = "<group>";
 		};
 		729B1AFEE326A47C6DC91028963B6C74 /* Resources */ = {
@@ -286,6 +248,27 @@
 			path = TensorFlowLiteC;
 			sourceTree = "<group>";
 		};
+		A35AACB2C8BB842FCAE62A00397612E9 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F03A2F829BD713CFECC30987D69C443B /* Pods-NailDiseaseSDK */,
+				608BD243E1FF485BD18602ECBD2B3323 /* Pods-NailDiseaseSDKTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B66503405D03A33638FA7F1603D19274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				138F053A67B7C91395AEA15BE8D8F575 /* Pods-NailDiseaseSDK */,
+				5298BFC75BF797AC31A8004F690FBE46 /* Pods-NailDiseaseSDKTests */,
+				F6CA8BFC88290AB33297A7C778E05B12 /* TensorFlowLiteC-TensorFlowLiteC */,
+				E0B71FE13AA6B05010059EB4B8D87919 /* TensorFlowLiteSwift */,
+				1D5601775997FD3F96D4BBB895A282FB /* TensorFlowLiteSwift-TensorFlowLite */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BF8AE1CE0D85274A961F59D397E04E8C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,23 +293,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		CE1D41C487912DB847604A0F7CED3855 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2C48627634C4BA6004A54F4B62259A63 /* Pods-NailDiseaseSDK */,
-				61DBFA2B958BDEE821FFFE658F873308 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				F8AA3F8A5CE14D6697B5AA5DEDB0A81A /* Pods */,
-				31604A6E04E57BB71F466EBE8985D95B /* Products */,
-				CE1D41C487912DB847604A0F7CED3855 /* Targets Support Files */,
+				B66503405D03A33638FA7F1603D19274 /* Products */,
+				A35AACB2C8BB842FCAE62A00397612E9 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,6 +351,23 @@
 			path = "../Target Support Files/TensorFlowLiteC";
 			sourceTree = "<group>";
 		};
+		F03A2F829BD713CFECC30987D69C443B /* Pods-NailDiseaseSDK */ = {
+			isa = PBXGroup;
+			children = (
+				21A57FE1FDD7B198E9DD8FA6B73D1561 /* Pods-NailDiseaseSDK.modulemap */,
+				72C1B8988D7889F63B44C092B3D73434 /* Pods-NailDiseaseSDK-acknowledgements.markdown */,
+				D48D3213260A4E754EDE0064584AE828 /* Pods-NailDiseaseSDK-acknowledgements.plist */,
+				FD3BADCE917DF46313BA6FF81536065B /* Pods-NailDiseaseSDK-dummy.m */,
+				35F33E77F83335C5ED901DC3BB34A06E /* Pods-NailDiseaseSDK-Info.plist */,
+				C70C8C9AA6A2D712A73C9F7C45951CFF /* Pods-NailDiseaseSDK-resources.sh */,
+				4106470631EA85603840A3FE157448AE /* Pods-NailDiseaseSDK-umbrella.h */,
+				2E5466335BC6311A74C3AAB42883BD52 /* Pods-NailDiseaseSDK.debug.xcconfig */,
+				FB86E9B4509133F90095F1729B1411D1 /* Pods-NailDiseaseSDK.release.xcconfig */,
+			);
+			name = "Pods-NailDiseaseSDK";
+			path = "Target Support Files/Pods-NailDiseaseSDK";
+			sourceTree = "<group>";
+		};
 		F8AA3F8A5CE14D6697B5AA5DEDB0A81A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,11 +388,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1EBF87FCB8F20A77F8F2AF3F842B532 /* Headers */ = {
+		872F6B20F68DDE2E1EA6F6EBA45AF2A1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90393ED16CF4352460CB218FC09293A9 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-umbrella.h in Headers */,
+				F6AC0A2B1008A7C925A5B2AB7175D055 /* Pods-NailDiseaseSDKTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +407,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		07B2B10867E254A081DA5998E5EEB02C /* Pods-NailDiseaseSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B90FD6C7033CC67E24F1EA561960F4E7 /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDKTests" */;
+			buildPhases = (
+				872F6B20F68DDE2E1EA6F6EBA45AF2A1 /* Headers */,
+				8AC1F10BD8B28A589B6CD72154B5EDAE /* Sources */,
+				8D819FE9D5CDFB0E67075D036780389C /* Frameworks */,
+				A43E1BC31782214B90F3603D105DD316 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38E0F542DD357DC14A6B43F2EF2031BC /* PBXTargetDependency */,
+			);
+			name = "Pods-NailDiseaseSDKTests";
+			productName = Pods_NailDiseaseSDKTests;
+			productReference = 5298BFC75BF797AC31A8004F690FBE46 /* Pods-NailDiseaseSDKTests */;
+			productType = "com.apple.product-type.framework";
+		};
 		0E30F2EFBF0085562A1B5F3CE337DBC4 /* TensorFlowLiteSwift-TensorFlowLite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31DADD8C58191194F746D890C640B302 /* Build configuration list for PBXNativeTarget "TensorFlowLiteSwift-TensorFlowLite" */;
@@ -490,26 +500,6 @@
 			productReference = F6CA8BFC88290AB33297A7C778E05B12 /* TensorFlowLiteC-TensorFlowLiteC */;
 			productType = "com.apple.product-type.bundle";
 		};
-		EDB51CCED64D73E96156D05DD08BC091 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D10C5046C16326E206AB504BB159421C /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK-NailDiseaseSDKTests" */;
-			buildPhases = (
-				F1EBF87FCB8F20A77F8F2AF3F842B532 /* Headers */,
-				F377817D7DD64F027A89273FCF48C2F0 /* Sources */,
-				BB8F2872591A1176805116386378A3AA /* Frameworks */,
-				3ACB1CC94E7952183913126204C97170 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5CA3F525EE88E34C05A41E85C506612B /* PBXTargetDependency */,
-				6701BADF5974240ED30F557F881AD5BB /* PBXTargetDependency */,
-			);
-			name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests";
-			productName = Pods_NailDiseaseSDK_NailDiseaseSDKTests;
-			productReference = 09F1C33A8E2C44C601C3B664FAE98CED /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -530,12 +520,12 @@
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 31604A6E04E57BB71F466EBE8985D95B /* Products */;
+			productRefGroup = B66503405D03A33638FA7F1603D19274 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				6C30ABDEEDEC85D076ED7EE059FA46A1 /* Pods-NailDiseaseSDK */,
-				EDB51CCED64D73E96156D05DD08BC091 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests */,
+				07B2B10867E254A081DA5998E5EEB02C /* Pods-NailDiseaseSDKTests */,
 				AC559E53E13B6FBEF4F5CC310A73AFE6 /* TensorFlowLiteC */,
 				E84A5C2B777F1A7DFA141FF65E7EF5F8 /* TensorFlowLiteC-TensorFlowLiteC */,
 				10418167F619D6DA72BADAD10F9EC02B /* TensorFlowLiteSwift */,
@@ -560,18 +550,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3ACB1CC94E7952183913126204C97170 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9767EEE3245A938D547DD545C055FFDB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F0FD42BDFFAF4EE493C5483BB1D73426 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43E1BC31782214B90F3603D105DD316 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +619,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8AC1F10BD8B28A589B6CD72154B5EDAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9AC2C2A05D9FC27B9CA0555BD8119A /* Pods-NailDiseaseSDKTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C336788E41B1E38F3581FFA11DEFA11A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -644,17 +642,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F377817D7DD64F027A89273FCF48C2F0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74398CD222B4D1C122154C4846C88FE9 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		38E0F542DD357DC14A6B43F2EF2031BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-NailDiseaseSDK";
+			target = 6C30ABDEEDEC85D076ED7EE059FA46A1 /* Pods-NailDiseaseSDK */;
+			targetProxy = D7DA5BC85B3E1E071CBB5359FAE85616 /* PBXContainerItemProxy */;
+		};
 		43C939D016292CA568C9F5B27008117C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "TensorFlowLiteC-TensorFlowLiteC";
@@ -666,18 +662,6 @@
 			name = "TensorFlowLiteSwift-TensorFlowLite";
 			target = 0E30F2EFBF0085562A1B5F3CE337DBC4 /* TensorFlowLiteSwift-TensorFlowLite */;
 			targetProxy = 532B9918EA4712A572882F430676A662 /* PBXContainerItemProxy */;
-		};
-		5CA3F525EE88E34C05A41E85C506612B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TensorFlowLiteC;
-			target = AC559E53E13B6FBEF4F5CC310A73AFE6 /* TensorFlowLiteC */;
-			targetProxy = 82747A668229CA096F97B7FA0FFBC66D /* PBXContainerItemProxy */;
-		};
-		6701BADF5974240ED30F557F881AD5BB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TensorFlowLiteSwift;
-			target = 10418167F619D6DA72BADAD10F9EC02B /* TensorFlowLiteSwift */;
-			targetProxy = D8D83584BF9A1361B4B5AF6AA1BC924B /* PBXContainerItemProxy */;
 		};
 		72CC99748FB8CF22456F7234EF39794E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -737,48 +721,9 @@
 			};
 			name = Release;
 		};
-		0E69EEBC812C5C0B13024D00A6A3BFA1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8E868D11D9B3A1E43E8465A2F568F9C /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		0F29B48623EC1B1BBE6FDAA930ECF8CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F1D8054D37275CD7C8DC1272FD76A6E /* Pods-NailDiseaseSDK.release.xcconfig */;
+			baseConfigurationReference = FB86E9B4509133F90095F1729B1411D1 /* Pods-NailDiseaseSDK.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -850,46 +795,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		36D4C879BE3C4DB35CD7B94825128160 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7084500B1FA2241AACBC4A2A70AF1FBD /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1101,7 +1006,7 @@
 		};
 		A7E5DD420B9E495369DFEFEA0010F7BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 596A76411EB49B56608B8502D89C0C12 /* Pods-NailDiseaseSDK.debug.xcconfig */;
+			baseConfigurationReference = 2E5466335BC6311A74C3AAB42883BD52 /* Pods-NailDiseaseSDK.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1152,6 +1057,85 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		D1767C09370AC85A3A7F4230BDEDE728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628209FD776D57858936793E203B38ED /* Pods-NailDiseaseSDKTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD23DE3E8817B7B6755CFF538BC98C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56D0149A3FABE840F3A0F86E7EFB3169 /* Pods-NailDiseaseSDKTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -1220,11 +1204,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D10C5046C16326E206AB504BB159421C /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDK-NailDiseaseSDKTests" */ = {
+		B90FD6C7033CC67E24F1EA561960F4E7 /* Build configuration list for PBXNativeTarget "Pods-NailDiseaseSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E69EEBC812C5C0B13024D00A6A3BFA1 /* Debug */,
-				36D4C879BE3C4DB35CD7B94825128160 /* Release */,
+				FD23DE3E8817B7B6755CFF538BC98C64 /* Debug */,
+				D1767C09370AC85A3A7F4230BDEDE728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

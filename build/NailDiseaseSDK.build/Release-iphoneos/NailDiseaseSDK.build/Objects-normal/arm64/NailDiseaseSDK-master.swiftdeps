@@ -1,7 +1,0 @@
-version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
-options: "ffa2570b7d10f98909b9e7452c1319eaf2d24689dbd410b98e348899c6c36761"
-build_start_time: [1741604105, 615642000]
-build_end_time: [1741604107, 654653000]
-inputs:
-  "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/NailDiseaseSDK/Sources/Services/ImageProcessor.swift": !dirty [1740636925, 431508606]
-  "/Users/piumalkumara/Documents/ICBT/Final_project/SDK/NailDiseaseSDK/NailDiseaseSDK/Sources/Services/TFLiteModelHandler.swift": !dirty [1740638572, 160810297]

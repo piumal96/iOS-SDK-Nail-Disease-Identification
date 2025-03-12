@@ -1,0 +1,186 @@
+name: CI Pipeline
+
+on:
+  push:
+    tags:
+      - "*.*.*"  
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write 
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
+
+      - name: Select Xcode 16.2
+        run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+
+      - name: Verify Xcode Version
+        run: xcodebuild -version
+
+      - name: Clean and Reset Build Cache
+        run: |
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          # rm -rf ~/Library/Caches/CocoaPods
+          # pod deintegrate
+          pod install --repo-update
+        working-directory: ${{ github.workspace }}
+
+      - name: Debug Available Schemes 🛠️
+        run: |
+          xcodebuild -list -json
+
+      - name: Run Unit Tests ✅  
+        run: |
+          echo "🚀 Running Unit Tests..."
+          SCHEME="NailDiseaseSDKTests"
+          WORKSPACE="NailDiseaseSDK.xcworkspace"
+          
+          if xcodebuild -list -json | grep -q "\"$SCHEME\""; then
+            xcodebuild test \
+              -workspace "$WORKSPACE" \
+              -scheme "$SCHEME" \
+              -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+              -configuration Debug \
+              -derivedDataPath "${{ github.workspace }}/DerivedData" \
+              -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
+            echo "✅ Unit Tests Passed!"
+          else
+            echo "❌ ERROR: Test scheme '$SCHEME' not found in workspace '$WORKSPACE'!"
+            exit 1
+          fi
+
+
+      - name: Build `.xcframework`
+        run: |
+          echo "🚀 Starting Build for NailDiseaseSDK.xcframework..."
+          BUILD_DIR="${{ github.workspace }}/build"
+          XCFRAMEWORK_PATH="${BUILD_DIR}/NailDiseaseSDK.xcframework"
+
+          echo "🧹 Cleaning previous artifacts..."
+          rm -rf "$BUILD_DIR"
+
+          echo "📱 Building for iOS devices..."
+          xcodebuild build \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS" \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath "$BUILD_DIR" \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO
+
+          echo "🖥️ Building for iOS Simulator..."
+          xcodebuild build \
+            -workspace NailDiseaseSDK.xcworkspace \
+            -scheme NailDiseaseSDK \
+            -destination "generic/platform=iOS Simulator" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$BUILD_DIR" \
+            BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+            SKIP_INSTALL=NO
+
+          IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
+          SIMULATOR_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
+
+          [[ -d "$IOS_FRAMEWORK_PATH" && -d "$SIMULATOR_FRAMEWORK_PATH" ]] || {
+            echo "❌ ERROR: Frameworks not found!"
+            find "$BUILD_DIR" -name 'NailDiseaseSDK.framework'
+            exit 1
+          }
+
+          echo "🔗 Creating .xcframework..."
+          xcodebuild -create-xcframework \
+            -framework "$IOS_FRAMEWORK_PATH" \
+            -framework "$SIMULATOR_FRAMEWORK_PATH" \
+            -allow-internal-distribution \
+            -output "$XCFRAMEWORK_PATH"
+
+          echo "✅ Build complete!"
+          
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload `.xcframework` as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NailDiseaseSDK.xcframework
+          path: build/NailDiseaseSDK.xcframework
+
+  publish-spm:
+    runs-on: ubuntu-latest
+    needs: build  # Runs after build is successful
+
+    steps:
+      - name: Checkout SPM Repository
+        uses: actions/checkout@v4
+        with:
+          repository: "piumal96/NailDiseaseSDK-IOS"
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          fetch-depth: 0
+
+      - name: Download `.xcframework` from Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: NailDiseaseSDK.xcframework
+          path: .
+
+      - name: Verify `.xcframework` Exists
+        run: |
+          if [ ! -d "NailDiseaseSDK.xcframework" ]; then
+            echo "❌ ERROR: NailDiseaseSDK.xcframework not found!"
+            exit 1
+          fi
+
+      - name: Fix Untracked Files Issue ⚠️  
+        run: |
+          git add -A  # ✅ Add all untracked files to commit
+          git status  # ✅ Show changes to verify
+          git diff --cached  # ✅ Display changes in staging
+
+      - name: Ensure Git Tag Exists Before Release  
+        run: |
+          VERSION=${{ github.ref_name }}
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
+          git tag -f "$CLEAN_VERSION"
+          git push origin "$CLEAN_VERSION" --force
+
+      - name: Create GitHub Release
+        run: |
+          VERSION=${{ github.ref_name }}
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
+          gh release create "$CLEAN_VERSION" \
+            --title "NailDiseaseSDK Release $CLEAN_VERSION" \
+            --notes "Automated release of NailDiseaseSDK $CLEAN_VERSION"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Update `Package.swift` to Point to Root `.xcframework`
+        run: |
+          VERSION=${{ github.ref_name }}
+          CLEAN_VERSION=$(echo "$VERSION" | sed 's/^v//')  # ✅ Remove "v" prefix if present
+
+          # ✅ Ensure Package.swift correctly points to the extracted framework
+          sed -i "s|path: \"./NailDiseaseSDK.xcframework\"|path: \"./NailDiseaseSDK.xcframework\"|g" Package.swift
+          sed -i "s|1.0.0|$CLEAN_VERSION|g" Package.swift
+        shell: bash
+
+      - name: Commit & Push Updated SPM Repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add NailDiseaseSDK.xcframework Package.swift
+          git commit -m "📦 Published $CLEAN_VERSION of NailDiseaseSDK"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}

@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24E5F49A2D7EFEF000C36CD1 /* NailDiseaseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407B5342D5C5CE3005A330B /* NailDiseaseSDK.framework */; };
+		24AE62932D8175C600ABF134 /* NailDiseaseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407B5342D5C5CE3005A330B /* NailDiseaseSDK.framework */; };
+		70885446CFA219DB6B5086C9 /* Pods_NailDiseaseSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3252FBEB27A39BA18FBD1A /* Pods_NailDiseaseSDKTests.framework */; };
 		A5CF4496393FF751F365839C /* Pods_NailDiseaseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CF4655CE96E4A5F62EB6FF /* Pods_NailDiseaseSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		24E5F49B2D7EFEF000C36CD1 /* PBXContainerItemProxy */ = {
+		24AE62942D8175C600ABF134 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2407B52B2D5C5CE3005A330B /* Project object */;
 			proxyType = 1;
@@ -24,12 +25,12 @@
 /* Begin PBXFileReference section */
 		0E67491F98B57C988F5A8EBD /* Pods-NailDiseaseSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDK.release.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK.release.xcconfig"; sourceTree = "<group>"; };
 		13B352A56684AEC839970843 /* Pods-NailDiseaseSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDK.debug.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDK/Pods-NailDiseaseSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		18D0D12BEF453434343590D6 /* Pods_NailDiseaseSDK_NailDiseaseSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NailDiseaseSDK_NailDiseaseSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2407B5342D5C5CE3005A330B /* NailDiseaseSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NailDiseaseSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24E5F4962D7EFEF000C36CD1 /* NailDiseaseSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NailDiseaseSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3971730D834693AB907F532B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		743867C1F47365EED75EFC56 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDK-NailDiseaseSDKTests/Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		24AE628F2D8175C600ABF134 /* NailDiseaseSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NailDiseaseSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B3252FBEB27A39BA18FBD1A /* Pods_NailDiseaseSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NailDiseaseSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C7F24164A8D38B6EDC0ECB /* Pods-NailDiseaseSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDKTests.release.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		99CF4655CE96E4A5F62EB6FF /* Pods_NailDiseaseSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NailDiseaseSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB89E2861EF8C29AE22246EE /* Pods-NailDiseaseSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NailDiseaseSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-NailDiseaseSDKTests/Pods-NailDiseaseSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -37,6 +38,13 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
 				NailDiseaseSDK.h,
+			);
+			target = 2407B5332D5C5CE3005A330B /* NailDiseaseSDK */;
+		};
+		24AE63282D818C4900ABF134 /* Exceptions for "NailDiseaseSDKTests" folder in "NailDiseaseSDK" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TFLiteModelHandlerTest.swift,
 			);
 			target = 2407B5332D5C5CE3005A330B /* NailDiseaseSDK */;
 		};
@@ -51,8 +59,11 @@
 			path = NailDiseaseSDK;
 			sourceTree = "<group>";
 		};
-		24E5F4972D7EFEF000C36CD1 /* NailDiseaseSDKTests */ = {
+		24AE62902D8175C600ABF134 /* NailDiseaseSDKTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				24AE63282D818C4900ABF134 /* Exceptions for "NailDiseaseSDKTests" folder in "NailDiseaseSDK" target */,
+			);
 			path = NailDiseaseSDKTests;
 			sourceTree = "<group>";
 		};
@@ -67,11 +78,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24E5F4932D7EFEF000C36CD1 /* Frameworks */ = {
+		24AE628C2D8175C600ABF134 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24E5F49A2D7EFEF000C36CD1 /* NailDiseaseSDK.framework in Frameworks */,
+				24AE62932D8175C600ABF134 /* NailDiseaseSDK.framework in Frameworks */,
+				70885446CFA219DB6B5086C9 /* Pods_NailDiseaseSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				2407B5362D5C5CE3005A330B /* NailDiseaseSDK */,
-				24E5F4972D7EFEF000C36CD1 /* NailDiseaseSDKTests */,
+				24AE62902D8175C600ABF134 /* NailDiseaseSDKTests */,
 				2407B5352D5C5CE3005A330B /* Products */,
 				9059D0B576BEC0C34FF8FBFE /* Pods */,
 				4B9DF2222FBCA5914DC0A22C /* Frameworks */,
@@ -93,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2407B5342D5C5CE3005A330B /* NailDiseaseSDK.framework */,
-				24E5F4962D7EFEF000C36CD1 /* NailDiseaseSDKTests.xctest */,
+				24AE628F2D8175C600ABF134 /* NailDiseaseSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				99CF4655CE96E4A5F62EB6FF /* Pods_NailDiseaseSDK.framework */,
-				18D0D12BEF453434343590D6 /* Pods_NailDiseaseSDK_NailDiseaseSDKTests.framework */,
+				5B3252FBEB27A39BA18FBD1A /* Pods_NailDiseaseSDKTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,8 +124,8 @@
 			children = (
 				13B352A56684AEC839970843 /* Pods-NailDiseaseSDK.debug.xcconfig */,
 				0E67491F98B57C988F5A8EBD /* Pods-NailDiseaseSDK.release.xcconfig */,
-				743867C1F47365EED75EFC56 /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.debug.xcconfig */,
-				3971730D834693AB907F532B /* Pods-NailDiseaseSDK-NailDiseaseSDKTests.release.xcconfig */,
+				DB89E2861EF8C29AE22246EE /* Pods-NailDiseaseSDKTests.debug.xcconfig */,
+				85C7F24164A8D38B6EDC0ECB /* Pods-NailDiseaseSDKTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -135,12 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2407B5472D5C5CE4005A330B /* Build configuration list for PBXNativeTarget "NailDiseaseSDK" */;
 			buildPhases = (
-				1B631F236E40E2BBE90CB21C /* [CP] Check Pods Manifest.lock */,
+				0F5B7DD8ECDDD0EB13581029 /* [CP] Check Pods Manifest.lock */,
 				2407B52F2D5C5CE3005A330B /* Headers */,
 				2407B5302D5C5CE3005A330B /* Sources */,
 				2407B5312D5C5CE3005A330B /* Frameworks */,
 				2407B5322D5C5CE3005A330B /* Resources */,
-				E279F4F170D8F54ED6A266B0 /* [CP] Copy Pods Resources */,
+				634073109F34108A93DAAD07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,27 +166,26 @@
 			productReference = 2407B5342D5C5CE3005A330B /* NailDiseaseSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		24E5F4952D7EFEF000C36CD1 /* NailDiseaseSDKTests */ = {
+		24AE628E2D8175C600ABF134 /* NailDiseaseSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24E5F49D2D7EFEF000C36CD1 /* Build configuration list for PBXNativeTarget "NailDiseaseSDKTests" */;
+			buildConfigurationList = 24AE62962D8175C600ABF134 /* Build configuration list for PBXNativeTarget "NailDiseaseSDKTests" */;
 			buildPhases = (
-				24E5F4922D7EFEF000C36CD1 /* Sources */,
-				24E5F4932D7EFEF000C36CD1 /* Frameworks */,
-				24E5F4942D7EFEF000C36CD1 /* Resources */,
+				5D1F39216526D455F2EC1A31 /* [CP] Check Pods Manifest.lock */,
+				24AE628B2D8175C600ABF134 /* Sources */,
+				24AE628C2D8175C600ABF134 /* Frameworks */,
+				24AE628D2D8175C600ABF134 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				24E5F49C2D7EFEF000C36CD1 /* PBXTargetDependency */,
+				24AE62952D8175C600ABF134 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				24E5F4972D7EFEF000C36CD1 /* NailDiseaseSDKTests */,
+				24AE62902D8175C600ABF134 /* NailDiseaseSDKTests */,
 			);
 			name = NailDiseaseSDKTests;
-			packageProductDependencies = (
-			);
 			productName = NailDiseaseSDKTests;
-			productReference = 24E5F4962D7EFEF000C36CD1 /* NailDiseaseSDKTests.xctest */;
+			productReference = 24AE628F2D8175C600ABF134 /* NailDiseaseSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +201,7 @@
 					2407B5332D5C5CE3005A330B = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					24E5F4952D7EFEF000C36CD1 = {
+					24AE628E2D8175C600ABF134 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -210,7 +221,7 @@
 			projectRoot = "";
 			targets = (
 				2407B5332D5C5CE3005A330B /* NailDiseaseSDK */,
-				24E5F4952D7EFEF000C36CD1 /* NailDiseaseSDKTests */,
+				24AE628E2D8175C600ABF134 /* NailDiseaseSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,7 +234,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24E5F4942D7EFEF000C36CD1 /* Resources */ = {
+		24AE628D2D8175C600ABF134 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,7 +244,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B631F236E40E2BBE90CB21C /* [CP] Check Pods Manifest.lock */ = {
+		0F5B7DD8ECDDD0EB13581029 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,7 +266,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E279F4F170D8F54ED6A266B0 /* [CP] Copy Pods Resources */ = {
+		5D1F39216526D455F2EC1A31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NailDiseaseSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		634073109F34108A93DAAD07 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24E5F4922D7EFEF000C36CD1 /* Sources */ = {
+		24AE628B2D8175C600ABF134 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,10 +325,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		24E5F49C2D7EFEF000C36CD1 /* PBXTargetDependency */ = {
+		24AE62952D8175C600ABF134 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2407B5332D5C5CE3005A330B /* NailDiseaseSDK */;
-			targetProxy = 24E5F49B2D7EFEF000C36CD1 /* PBXContainerItemProxy */;
+			targetProxy = 24AE62942D8175C600ABF134 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -351,6 +384,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -499,15 +533,17 @@
 			};
 			name = Release;
 		};
-		24E5F49E2D7EFEF000C36CD1 /* Debug */ = {
+		24AE62972D8175C600ABF134 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB89E2861EF8C29AE22246EE /* Pods-NailDiseaseSDKTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5M57N66JGA;
+				DEVELOPMENT_TEAM = WXVBV5W7SP;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cardiff.naildisease.NailDiseaseSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cardiff.naildiseasef.NailDiseaseSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -515,15 +551,17 @@
 			};
 			name = Debug;
 		};
-		24E5F49F2D7EFEF000C36CD1 /* Release */ = {
+		24AE62982D8175C600ABF134 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85C7F24164A8D38B6EDC0ECB /* Pods-NailDiseaseSDKTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5M57N66JGA;
+				DEVELOPMENT_TEAM = WXVBV5W7SP;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cardiff.naildisease.NailDiseaseSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cardiff.naildiseasef.NailDiseaseSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -552,11 +590,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24E5F49D2D7EFEF000C36CD1 /* Build configuration list for PBXNativeTarget "NailDiseaseSDKTests" */ = {
+		24AE62962D8175C600ABF134 /* Build configuration list for PBXNativeTarget "NailDiseaseSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24E5F49E2D7EFEF000C36CD1 /* Debug */,
-				24E5F49F2D7EFEF000C36CD1 /* Release */,
+				24AE62972D8175C600ABF134 /* Debug */,
+				24AE62982D8175C600ABF134 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

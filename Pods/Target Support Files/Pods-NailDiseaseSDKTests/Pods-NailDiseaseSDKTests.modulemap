@@ -1,0 +1,6 @@
+framework module Pods_NailDiseaseSDKTests {
+  umbrella header "Pods-NailDiseaseSDKTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
