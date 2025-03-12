@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "runInference(inputData:)"
+            landmarkName = "analyzeNail(imageData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
