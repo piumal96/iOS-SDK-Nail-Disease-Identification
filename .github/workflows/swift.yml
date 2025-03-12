@@ -52,6 +52,7 @@ jobs:
               -scheme "$SCHEME" \
               -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
               -configuration Debug \
+              
               -derivedDataPath "${{ github.workspace }}/DerivedData" \
               -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
             echo "✅ Unit Tests Passed!"
@@ -79,7 +80,8 @@ jobs:
             -sdk iphoneos \
             -derivedDataPath "$BUILD_DIR" \
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-            SKIP_INSTALL=NO
+            SKIP_INSTALL=NO \
+            CODE_SIGNING_ALLOWED=NO
 
           echo "🖥️ Building for iOS Simulator..."
           xcodebuild build \
@@ -90,7 +92,8 @@ jobs:
             -sdk iphonesimulator \
             -derivedDataPath "$BUILD_DIR" \
             BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-            SKIP_INSTALL=NO
+            SKIP_INSTALL=NO \
+            CODE_SIGNING_ALLOWED=NO
 
           IOS_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphoneos/NailDiseaseSDK.framework"
           SIMULATOR_FRAMEWORK_PATH="$BUILD_DIR/Build/Products/Release-iphonesimulator/NailDiseaseSDK.framework"
