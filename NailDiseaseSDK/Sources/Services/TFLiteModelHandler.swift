@@ -9,18 +9,13 @@ import TensorFlowLite
 import Foundation
 import Combine
 
-public class TFLiteTest {
-    public static func testPrint() {
-        print("✅ TensorFlow Lite is integrated successfully!")
-    }
-}
 
-public class TFLiteModelHandler: ObservableObject {
-    @Published public var inferenceResult: [Float] = []
+public class NailDiseaseClassifier: ObservableObject {
+    @Published public var predictionScores: [Float] = []
     private var interpreter: Interpreter?
     
     // Class labels for the model
-    private let labels = [
+    private let diagnosisLabels = [
         "Acral Lentiginous Melanoma",
         "Blue Finger",
         "Clubbing",
@@ -28,12 +23,14 @@ public class TFLiteModelHandler: ObservableObject {
         "Onychogryphosis",
         "Pitting"
     ]
-    public init(modelName: String) {
-        loadModel()
+    
+    public init() {
+        initializeModel()
     }
-    let frameworkBundle = Bundle(for: TFLiteModelHandler.self)
+    
+    let frameworkBundle = Bundle(for: NailDiseaseClassifier.self)
 
-    private func loadModel() {
+    private func initializeModel() {
         guard let modelPath = frameworkBundle.path(forResource: "model", ofType: "tflite") else {
             fatalError("Failed to load model.tflite. Ensure the file exists in your Xcode project and is added to the Copy Bundle Resources.")
         }
@@ -49,8 +46,8 @@ public class TFLiteModelHandler: ObservableObject {
         }
     }
 
-    /// Runs inference on input data and updates `inferenceResult`
-    public func runInference(inputData: Data) {
+    /// Runs inference on input data and updates `predictionScores`
+    public func analyzeNail(imageData: Data) {
         guard let interpreter = interpreter else {
             print("Interpreter is not initialized.")
             return
@@ -60,20 +57,20 @@ public class TFLiteModelHandler: ObservableObject {
             let inputTensor = try interpreter.input(at: 0)
             print("Model expects input size: \(inputTensor.shape.dimensions)")
             
-            guard inputData.count == inputTensor.data.count else {
-                print("Error: Input data size \(inputData.count) does not match model input size \(inputTensor.data.count)")
+            guard imageData.count == inputTensor.data.count else {
+                print("Error: Input data size \(imageData.count) does not match model input size \(inputTensor.data.count)")
                 return
             }
 
-            try interpreter.copy(inputData, toInputAt: 0)
+            try interpreter.copy(imageData, toInputAt: 0)
             try interpreter.invoke()
 
             let outputTensor = try interpreter.output(at: 0)
 
             // ✅ Fix: Ensure UI updates are done on the main thread
             DispatchQueue.main.async {
-                self.inferenceResult = outputTensor.data.toArray(type: Float.self)
-                print("Inference Result: \(self.inferenceResult)")
+                self.predictionScores = outputTensor.data.toArray(type: Float.self)
+                print("Inference Result: \(self.predictionScores)")
             }
 
         } catch {
@@ -81,25 +78,24 @@ public class TFLiteModelHandler: ObservableObject {
         }
     }
 
-    
     /// Returns the predicted label based on inference results
-    public func getInferenceLabel() -> String {
-        guard !inferenceResult.isEmpty else {
+    public func getDiagnosis() -> String {
+        guard !predictionScores.isEmpty else {
             return "No inference result available"
         }
 
         // Ensure the number of labels matches the result length
-        guard labels.count == inferenceResult.count else {
-            print("Warning: Label count (\(labels.count)) does not match result count (\(inferenceResult.count)).")
+        guard diagnosisLabels.count == predictionScores.count else {
+            print("Warning: Label count (\(diagnosisLabels.count)) does not match result count (\(predictionScores.count)).")
             return "Label mismatch error"
         }
 
         // Find the index of the highest probability
-        guard let maxIndex = inferenceResult.firstIndex(of: inferenceResult.max() ?? 0) else {
+        guard let maxIndex = predictionScores.firstIndex(of: predictionScores.max() ?? 0) else {
             return "Unknown result"
         }
 
-        return labels[maxIndex]
+        return diagnosisLabels[maxIndex]
     }
 }
 
