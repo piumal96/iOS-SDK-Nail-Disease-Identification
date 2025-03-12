@@ -41,10 +41,11 @@ jobs:
           if xcodebuild -list -json | grep -q '"test"'; then
             xcodebuild test \
               -workspace NailDiseaseSDK.xcworkspace \
-              -scheme NailDiseaseSDK \
-              -destination "platform=iOS Simulator,name=iPhone 14" \
+              -scheme NailDiseaseSDKTests \
+              -ddestination "generic/platform=iOS Simulator" \
               -configuration Debug \
               -derivedDataPath "${{ github.workspace }}/DerivedData"
+              -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
             echo "✅ Unit Tests Passed!"
           else
             echo "⚠️ No test target found, skipping tests."
