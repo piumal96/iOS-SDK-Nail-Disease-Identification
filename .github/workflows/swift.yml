@@ -42,7 +42,7 @@ jobs:
             xcodebuild test \
               -workspace NailDiseaseSDK.xcworkspace \
               -scheme NailDiseaseSDKTests \
-              -ddestination "generic/platform=iOS Simulator" \
+              -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
               -configuration Debug \
               -derivedDataPath "${{ github.workspace }}/DerivedData"
               -resultBundlePath "${{ github.workspace }}/TestResults.xcresult" | xcpretty --test --color
