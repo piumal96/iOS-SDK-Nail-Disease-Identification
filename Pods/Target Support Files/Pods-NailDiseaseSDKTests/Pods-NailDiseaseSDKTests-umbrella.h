@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NailDiseaseSDK_NailDiseaseSDKTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NailDiseaseSDK_NailDiseaseSDKTestsVersionString[];
+FOUNDATION_EXPORT double Pods_NailDiseaseSDKTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_NailDiseaseSDKTestsVersionString[];
 

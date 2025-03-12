@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+@testable import NailDiseaseSDK
 final class NailDiseaseSDKTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -15,6 +15,16 @@ final class NailDiseaseSDKTests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    func testModelLoading() {
+        let frameworkBundle = Bundle(for: TFLiteModelHandler.self)
+        let modelPath = frameworkBundle.path(forResource: "model", ofType: "tflite")
+
+        XCTAssertNotNil(modelPath, " model.tflite is missing in the bundle!")
+
+        // Now, attempt to initialize the model handler
+        let modelHandler = TFLiteModelHandler(modelName: "model")
+        XCTAssertNotNil(modelHandler, " TFLiteModelHandler failed to initialize!")
     }
 
     func testExample() throws {

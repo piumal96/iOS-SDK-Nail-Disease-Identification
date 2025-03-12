@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:NailDiseaseSDKTests">
-   </FileRef>
-   <FileRef
       location = "group:NailDiseaseSDK.xcodeproj">
    </FileRef>
    <FileRef
